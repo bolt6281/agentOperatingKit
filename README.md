@@ -2,7 +2,7 @@
 
 Agent Operating Kit(AOK) is a documentation and workflow template pack for operating software projects with coding agents.
 
-AOK is not a code framework. It is an operating kit that helps an agent understand a project, choose the right workflow, keep project documents aligned, and avoid wasting context on oversized instruction files.
+AOK is not a bigger prompt. It is a template pack for keeping always-read agent instructions small, while moving optional workflows and project knowledge into discoverable documents that agents read only when relevant.
 
 Korean version: [한국어](#한국어)
 
@@ -20,6 +20,7 @@ AOK addresses these problems by splitting agent instructions, workflows, documen
 
 ## Core Principles
 
+- Keep the root `AGENTS.md` short enough to read every session. Prefer 50-100 lines for small projects.
 - Select only the components the project actually needs.
 - Ask the user which parts of AOK they want before applying it.
 - Read existing project documents before restructuring them.
@@ -28,6 +29,8 @@ AOK addresses these problems by splitting agent instructions, workflows, documen
 - Create `.agents/workflows/*.md` only for projects that use Superpowers.
 - If Superpowers is not used, do not provide AOK workflow documents; apply only the basic root `AGENTS.md` operating guidance.
 - Treat global instruction files such as `~/.codex/AGENTS.md` as optional.
+
+AOK succeeds when it reduces the amount of context an agent must read for ordinary work. If applying AOK makes every task read more documents by default, the application is wrong.
 
 ## Quick Start
 
@@ -54,6 +57,7 @@ AOK is not installed through a fixed sequence. It is a template pack where each 
 | Component | Use When |
 |---|---|
 | Root `AGENTS.md` | The agent needs always-read project overview, commands, and verification routing |
+| Document map / instruction governance sections | Document source-of-truth status or agent instruction change approval rules are needed |
 | `.agents/INDEX.md` | Workflows, nested agent instructions, or project-specific skills need an index |
 | `.agents/workflows/*.md` | The project uses Superpowers and the same work procedure repeats |
 | ADR / current status / version history | Long-running operation, document consistency, or decision history needs governance |
@@ -107,7 +111,7 @@ Released under the MIT No Attribution License (MIT-0). See [LICENSE](LICENSE) fo
 
 Agent Operating Kit(AOK)는 agent와 함께 프로젝트를 운영하기 위한 문서/워크플로우 템플릿 팩입니다.
 
-AOK는 코드를 대신 작성하는 프레임워크가 아니라, agent가 프로젝트를 읽고, 작업 범위를 판단하고, 문서를 정리하고, 반복 작업 절차를 안정적으로 따르도록 만드는 운영 키트입니다.
+AOK는 더 큰 프롬프트를 만들기 위한 도구가 아니라, 항상 읽는 agent 지침은 작게 유지하고 필요한 workflow와 프로젝트 지식만 찾아 읽게 만드는 템플릿 팩입니다.
 
 English version: [English](#agent-operating-kit)
 
@@ -125,6 +129,7 @@ AOK는 이런 상황에서 프로젝트별 agent 지침, workflow, 문서 지도
 
 ## 핵심 원칙
 
+- 루트 `AGENTS.md`는 매 세션 읽어도 부담 없는 크기로 유지한다. 작은 프로젝트는 50-100줄 안팎을 우선한다.
 - 프로젝트에 필요한 구성요소만 선택해 적용한다.
 - 사용자에게 필요한 적용 범위를 선택지로 먼저 묻는다.
 - 기존 프로젝트 문서는 먼저 읽고, 정보 손실 없이 AOK 구조에 반영한다.
@@ -132,6 +137,8 @@ AOK는 이런 상황에서 프로젝트별 agent 지침, workflow, 문서 지도
 - 긴 절차는 Superpowers를 사용하는 프로젝트에서만 `.agents/workflows/*.md`로 분리한다.
 - Superpowers를 쓰지 않는 프로젝트에는 AOK workflow 문서를 제공하지 않고, 루트 `AGENTS.md`의 기본 작업 원칙만 적용한다.
 - `~/.codex/AGENTS.md` 같은 전역 지침은 기본 적용 대상이 아니며, 사용자가 선택한 경우에만 다룬다.
+
+AOK 적용의 성공 기준은 일반 작업에서 agent가 읽어야 하는 기본 컨텍스트가 줄어드는 것이다. AOK를 적용한 결과 모든 작업에서 더 많은 문서를 기본으로 읽게 된다면 적용이 잘못된 것이다.
 
 ## 빠른 시작
 
@@ -158,6 +165,7 @@ AOK는 정해진 단계를 따라 설치하는 도구가 아니라, 프로젝트
 | 구성요소 | 쓸 때 |
 |---|---|
 | 루트 `AGENTS.md` | agent가 항상 알아야 하는 프로젝트 개요, 명령어, 검증 라우팅이 필요할 때 |
+| 문서 지도 / 지침 거버넌스 섹션 | 문서 source-of-truth 상태나 agent 지침 변경 승인 규칙이 필요할 때 |
 | `.agents/INDEX.md` | workflow, 하위 agent 지침, 프로젝트 전용 skill을 색인해야 할 때 |
 | `.agents/workflows/*.md` | Superpowers를 사용하고 같은 작업 절차가 반복될 때 |
 | ADR / current status / version history | 장기 운영, 문서 정합성, 의사결정 이력 관리가 필요할 때 |

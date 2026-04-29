@@ -2,7 +2,7 @@
 
 이 파일은 실제 agent 지침 파일이 아니다. Agent Operating Kit(AOK)를 새 프로젝트나 기존 프로젝트에 적용할 때 참고하는 원본 인덱스다.
 
-AOK는 agent 지침, 작업 workflow, 문서 지도, 문서 거버넌스를 정리해 프로젝트 진행 중 컨텍스트 낭비와 문서 불일치를 줄이는 운영 키트다.
+AOK는 더 큰 프롬프트를 만들기 위한 도구가 아니라, 항상 읽는 agent 지침은 작게 유지하고 필요한 workflow와 프로젝트 지식만 찾아 읽게 만드는 템플릿 팩이다.
 
 실제 적용 시에는 이 파일을 그대로 복사하지 말고, 필요한 문서만 아래 순서로 읽고 사용자가 선택한 항목만 프로젝트에 반영한다.
 
@@ -18,6 +18,7 @@ English version: [../en/agentOperatingKit.md](../en/agentOperatingKit.md)
 
 ## 기본 원칙
 
+- 루트 `AGENTS.md`는 매 세션 읽어도 부담 없는 크기로 유지한다. 작은 프로젝트는 50-100줄 안팎을 우선한다.
 - `AGENTS.md`에는 항상 읽혀도 손해가 적은 핵심 지침만 둔다.
 - 긴 절차는 `.agents/workflows/*.md`로 분리하고, 필요할 때만 읽게 한다.
 - 하위 `AGENTS.md`는 자동 생성하지 않는다. 반복적이고 범위가 명확한 규칙만 사용자 승인 후 만든다.
@@ -27,12 +28,28 @@ English version: [../en/agentOperatingKit.md](../en/agentOperatingKit.md)
 - AOK 적용은 선택지형 인터뷰, 적용안 제안, 사용자 승인 후 반영 순서로 진행한다.
 - workflow 템플릿은 Superpowers 설치 환경을 기준으로 한다. Superpowers를 쓰지 않는 프로젝트에는 `.agents/workflows/*.md`를 제공하지 않고 루트 `AGENTS.md`의 기본 작업 원칙만 적용한다.
 
+AOK 적용의 성공 기준은 일반 작업에서 agent가 읽어야 하는 기본 컨텍스트가 줄어드는 것이다. AOK를 적용한 결과 모든 작업에서 더 많은 문서를 기본으로 읽게 된다면 적용이 잘못된 것이다.
+
+## 읽는 빈도 모델
+
+고정된 도입 단계가 아니라 읽는 빈도를 기준으로 문서를 나눈다.
+
+| 빈도 | 파일 | 규칙 |
+|---|---|---|
+| 항상 읽음 | 루트 `AGENTS.md` | 매 세션 읽어도 부담 없게 짧게 유지 |
+| 라우팅 시 읽음 | `.agents/INDEX.md`, 하위 `AGENTS.md` | 작업이 해당 영역에 들어가거나 라우팅이 필요할 때만 읽음 |
+| 작업별로 읽음 | 선택된 `.agents/workflows/*.md` | 해당 반복 작업에만 읽음 |
+| 참조가 필요할 때 읽음 | ADR, current status, version history | 작업이 해당 기준 문서에 의존할 때만 읽음 |
+| 예외 상황에 읽음 | work log, archive | 롤백, 복구, 장애 조사, 회귀 추적, 과거 보존 확인 때만 읽음 |
+
 ## 템플릿
 
 | 목적 | 파일 |
 |---|---|
 | 전역 Codex 지침 | [aok/templates/global-agents.md](aok/templates/global-agents.md) |
 | repo 루트 `AGENTS.md` | [aok/templates/repo-agents.md](aok/templates/repo-agents.md) |
+| 문서 지도 섹션 | [aok/templates/document-map.md](aok/templates/document-map.md) |
+| agent 지침 거버넌스 섹션 | [aok/templates/agent-instruction-governance.md](aok/templates/agent-instruction-governance.md) |
 | `.agents/INDEX.md` | [aok/templates/agents-index.md](aok/templates/agents-index.md) |
 | Agent 지침 변경 제안 채팅 양식 | [aok/templates/agent-change-proposal.md](aok/templates/agent-change-proposal.md) |
 | 하위 `AGENTS.md` | [aok/templates/subdir-agents.md](aok/templates/subdir-agents.md) |

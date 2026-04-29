@@ -1,11 +1,13 @@
 # Component Selection Guide
 
-AOK is not a fixed installation sequence. Select only the components that fit the project state and the user's goal.
+AOK is not a fixed installation sequence and not a larger prompt. Select only the components that fit the project state and the user's goal.
 
 Use [Recommended File Structure](file-structure.md) for default paths and file roles. This document only decides when each component should be selected.
 
 ## Selection Principles
 
+- Keep root `AGENTS.md` short enough to read every session. Prefer 50-100 lines for small projects.
+- Move optional procedures, historical notes, and governance details behind explicit read conditions.
 - Do not create the full AOK structure up front.
 - Prefer updating existing documents over adding new documents.
 - Do not create components the user did not select.
@@ -13,11 +15,25 @@ Use [Recommended File Structure](file-structure.md) for default paths and file r
 - Change the meaning of existing documents only after user approval.
 - If existing documents are stale or conflicting, leave them as conflict candidates instead of silently choosing a source of truth.
 
+AOK succeeds when it reduces the amount of context an agent must read for ordinary work. If applying AOK makes every task read more documents by default, the application is wrong.
+
+## Read Frequency Categories
+
+| Category | Files | Default Behavior |
+|---|---|---|
+| Always-read | Root `AGENTS.md` | Read every session; keep short |
+| Routed-read | `.agents/INDEX.md`, nested `AGENTS.md` | Read only when routing or area-specific rules are needed |
+| Task-read | Selected workflow files | Read only for the matching repeated task |
+| Reference-read | ADR, current status, version history | Read only when the task depends on that source of truth |
+| Exception-read | Work log, archive | Read only for rollback, recovery, incident investigation, regression tracing, or historical preservation |
+
 ## Component Selection Criteria
 
 | Component | Create Or Update When | Do Not Create When |
 |---|---|---|
-| Root `AGENTS.md` | The agent needs always-read project overview, common commands, verification routing, or a document map | README is enough and the project does not need agent operating rules |
+| Root `AGENTS.md` | The agent needs always-read project overview, common commands, verification routing, or short document routing | README is enough and the project does not need agent operating rules |
+| Document map section | Current project documents need read conditions and source-of-truth status | There are only one or two obvious documents and README routing is enough |
+| Agent instruction governance section | Agent instruction files are managed policy files and changes need approval rules | The project has only a small root `AGENTS.md` and no repeated instruction changes |
 | `.agents/INDEX.md` | Workflows, nested agent instructions, or project-specific skills need an index | Root `AGENTS.md` is enough or the project does not use Superpowers workflows |
 | `.agents/workflows/*.md` | The project uses Superpowers and the same work procedure repeats | The project does not use Superpowers or the repeated procedure is not stable yet |
 | `.agents/skills/<skill-name>/SKILL.md` | The same failure repeats and requires a stable judgment procedure that tests, lint, CI, or scripts cannot prevent alone | Automation can prevent the issue or the procedure has not stabilized |
@@ -48,7 +64,7 @@ Select workflow documents only for projects that use Superpowers. Do not create 
 
 - Do not delete or move existing documents automatically.
 - Do not add new AOK documents automatically.
-- Record existing documents in the root `AGENTS.md` document map with status and source-of-truth role.
+- If a document map is selected, record existing documents with status and source-of-truth role. Otherwise keep only minimal document routing in root `AGENTS.md`.
 - If a large `AGENTS.md` already exists, first propose how to split it into root router, `.agents/INDEX.md`, workflows, and general docs.
 - If CHANGELOG or release notes already exist, strengthen them before creating `docs/VERSION_HISTORY.md`.
 - If ADR, current status, or archive documents already exist, first mark whether each one is a current reference, preserved history, or conflict candidate.

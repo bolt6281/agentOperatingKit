@@ -2,7 +2,7 @@
 
 AOK의 workflow 템플릿은 Superpowers 스킬 기반으로 작성되어 있다. workflow 문서를 적용하려는 프로젝트에서는 먼저 해당 LLM 환경에 Superpowers를 설치해야 한다.
 
-Superpowers를 설치하지 않거나 사용하지 않는 환경에는 `.agents/workflows/*.md`를 제공하지 않는다. 이 경우 AOK는 루트 `AGENTS.md`의 기본 작업 원칙과 문서 지도까지만 적용한다.
+Superpowers를 설치하지 않거나 사용하지 않는 환경에는 `.agents/workflows/*.md`를 제공하지 않는다. 이 경우 AOK는 짧은 루트 `AGENTS.md`의 기본 작업 원칙과 사용자가 명시적으로 선택한 문서 라우팅까지만 적용한다.
 
 스킬 호출을 일반 절차, 체크리스트, 도구 이름으로 변환한 workflow를 만들지 않는다. workflow 품질은 Superpowers 스킬 호출과 함께 유지하는 것을 전제로 한다.
 

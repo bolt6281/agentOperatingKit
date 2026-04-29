@@ -2,7 +2,7 @@
 
 AOK workflow templates are written around Superpowers skills. Projects that apply workflow documents must first install Superpowers in the relevant LLM environment.
 
-If Superpowers is not installed or not used, do not provide `.agents/workflows/*.md`. In that case, AOK applies only the root `AGENTS.md` operating guidance and document map.
+If Superpowers is not installed or not used, do not provide `.agents/workflows/*.md`. In that case, AOK applies only the short root `AGENTS.md` operating guidance and any explicitly selected document routing.
 
 Do not create workflow documents that translate skill calls into generic procedures, checklists, or tool names. AOK workflow quality assumes the availability of Superpowers skill calls.
 

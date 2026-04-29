@@ -1,8 +1,10 @@
 # AOK Application Guide
 
-AOK organizes agent instructions, work workflows, document maps, and document governance to reduce context waste and document drift during project work.
+AOK keeps always-read agent instructions small and moves optional workflows, document maps, and governance details behind explicit read conditions.
 
 When an agent is asked to apply AOK, it must not create files immediately. It should first explain what AOK is, inspect the current project state, and present choices in stages.
+
+AOK succeeds when it reduces the amount of context an agent must read for ordinary work. If applying AOK makes every task read more documents by default, the application is wrong.
 
 ## Application Order
 
@@ -31,30 +33,26 @@ Summarize the result briefly for the user. If existing documents conflict, mark 
 
 ## First-Stage Interview
 
-Ask only these three questions first. The adoption purpose supports multiple selections.
+Ask only these three questions first.
 
-### 1. AOK Adoption Purpose
+### 1. Starting Scope
 
-- Prepare for development: the repo has planning material and needs an agent operating structure before implementation starts.
-- Stabilize work pipelines: feature work, bug fixes, refactors, and documentation changes need repeatable procedures.
-- Restore document consistency: reduce drift between code and docs, and between docs themselves.
-- Save context: split and index large documents so agents read only what is relevant.
-- Clean up an existing project: absorb existing README, agent instructions, docs, and planning material into AOK structure.
-- Strengthen collaboration and long-term operation: keep decisions and work history stable across people or agents.
-- Control risky work: manage DB, deployment, CI, dependency, authentication, authorization, and other high-risk changes more strictly.
+- Minimal root `AGENTS.md` only: keep always-read guidance small and do not add optional workflow or governance documents.
+- Root `AGENTS.md` plus selected document routing: add only the document map or governance sections the project actually needs.
+- Workflows and long-term docs too: consider `.agents/INDEX.md`, selected workflows, ADR/current-status/version-history, or nested `AGENTS.md`.
+- Diagnose only: produce a report and proposal without changing files.
 
 ### 2. Project State
 
 - New repo: few or no existing documents or workflows.
 - Existing repo: README, docs, agent instructions, or workflows already exist.
 - Document-drift repo: source-of-truth documents conflict or many docs are stale.
-- Diagnose only: produce a report and proposal without changing files.
 
 ### 3. Superpowers-Based Workflow Usage
 
 - Use workflows: Superpowers is already installed or will be installed before applying AOK workflows.
 - Need install guidance: the user wants workflows but needs Superpowers installation instructions.
-- Do not use workflows: apply only root `AGENTS.md` guidance and do not create AOK workflow documents.
+- Do not use workflows: apply only root `AGENTS.md` guidance and any selected document routing. Do not create AOK workflow documents.
 - Decide later: defer workflow creation for now.
 
 If Superpowers is not used, do not provide `.agents/workflows/*.md`. Do not create converted workflows that replace skill calls with generic procedures.
@@ -69,11 +67,25 @@ If Superpowers usage is unclear, classify the project with these signals and con
 
 Ask only the questions needed based on the first-stage answers.
 
+### AOK Adoption Purpose Details
+
+Ask this only when the user selects more than minimal root `AGENTS.md` or asks for a diagnosis.
+
+- Prepare for development: the repo has planning material and needs an agent operating structure before implementation starts.
+- Stabilize work pipelines: feature work, bug fixes, refactors, and documentation changes need repeatable procedures.
+- Restore document consistency: reduce drift between code and docs, and between docs themselves.
+- Save context: split and index large documents so agents read only what is relevant.
+- Clean up an existing project: absorb existing README, agent instructions, docs, and planning material into AOK structure.
+- Strengthen collaboration and long-term operation: keep decisions and work history stable across people or agents.
+- Control risky work: manage DB, deployment, CI, dependency, authentication, authorization, and other high-risk changes more strictly.
+
 ### AOK Core File Scope
 
 Default paths and structures for these items follow [Recommended File Structure](file-structure.md).
 
-- Root `AGENTS.md`: project overview, common commands, verification routing, and document map.
+- Root `AGENTS.md`: short always-read project overview, common commands, verification routing, and minimal document routing. Prefer 50-100 lines for small projects.
+- Document map section: add only when current project documents need source-of-truth status and explicit read conditions.
+- Agent instruction governance section: add only when `AGENTS.md`, nested `AGENTS.md`, or `.agents/**` changes need approval rules.
 - Global `~/.codex/AGENTS.md`: only when the user wants AOK-aligned personal global rules.
 - `.agents/INDEX.md`: index for agent workflows and instruction files.
 - `.agents/workflows/*.md`: task-specific procedures only for projects that use Superpowers.
@@ -108,7 +120,9 @@ If an existing `AGENTS.md` is large or contains workflow procedures directly, pr
 
 | Destination | Content |
 |---|---|
-| Root `AGENTS.md` | Always-read project overview, codebase structure, common commands, verification routing, core approval/forbidden rules, document map |
+| Root `AGENTS.md` | Short always-read project overview, common commands, verification routing, and minimal document routing |
+| Document map section | Source-of-truth status, read conditions, document status, and document maintenance rules when selected |
+| Agent instruction governance section | Approval rules for changing `AGENTS.md`, nested `AGENTS.md`, and `.agents/**` when selected |
 | `.agents/INDEX.md` | Workflow routing, approved agent instruction file list, project-specific skill index, AOK adoption decision summary |
 | `.agents/workflows/*.md` | Repeated procedures such as feature work, bug fixes, refactors, documentation changes, risky changes, and review feedback |
 | Nested `AGENTS.md` | Directory- or area-specific coding rules, verification commands, design rules, or operations rules |
@@ -135,11 +149,14 @@ If placement is ambiguous, keep only a short routing rule in root `AGENTS.md` an
 
 | User Selection | AOK Behavior |
 |---|---|
+| Minimal root `AGENTS.md` only | Create or update only the short always-read root instructions. Do not add workflows, ADR, current status, version history, work log, or archive unless separately selected. |
+| Root `AGENTS.md` plus selected document routing | Add only the selected document map or governance sections. Keep optional details behind explicit read conditions. |
+| Workflows and long-term docs too | Consider `.agents/INDEX.md`, workflows, nested `AGENTS.md`, ADR, current status, and version history using the component selection criteria. |
 | Prepare for development | Create root `AGENTS.md`, common commands, and verification routing first. |
 | Global `~/.codex/AGENTS.md` | Inspect existing global instructions, then propose add/merge/keep/skip options and modify only after approval. |
 | Stabilize work pipelines | Apply `.agents/INDEX.md` and selected `.agents/workflows/*.md` only if Superpowers is used. |
 | Need Superpowers guidance | Provide installation instructions for the current LLM environment, then confirm workflow adoption after installation. |
-| Do not use Superpowers | Do not create workflow documents; apply only basic root `AGENTS.md` operating guidance. |
+| Do not use Superpowers | Do not create workflow documents; apply only basic root `AGENTS.md` operating guidance and any selected document routing. |
 | Restore document consistency | Prioritize document maps, source-of-truth markers, conflict lists, and archive policy. |
 | Save context | Split large documents and strengthen indexing rules so agents read only relevant files. |
 | Clean up existing project | Read existing documents one by one and record loss risks in the migration trace. |

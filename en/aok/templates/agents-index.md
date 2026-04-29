@@ -1,7 +1,7 @@
 # Agent Work Procedure Index
 
 Read only the documents relevant to the current task. Do not read all workflow documents by default.
-This file indexes only agent instruction files, workflows, and project-specific skills. Manage general project documents such as product docs, operations docs, ADRs, releases, and work logs in the root `AGENTS.md` document map.
+This file indexes only agent instruction files, workflows, and project-specific skills. Manage general project documents such as product docs, operations docs, ADRs, releases, and work logs through root `AGENTS.md` document routing or the optional document map section.
 
 ## Common Routing
 

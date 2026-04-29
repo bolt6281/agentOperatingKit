@@ -2,7 +2,7 @@
 
 This file is not an actual agent instruction file. It is the source index for applying Agent Operating Kit(AOK) to a new or existing project.
 
-AOK is an operating kit that reduces context waste and document drift by organizing agent instructions, work workflows, document maps, and document governance.
+AOK is not a bigger prompt. It is a template pack for keeping always-read agent instructions small, while moving optional workflows and project knowledge into discoverable documents that agents read only when relevant.
 
 When applying AOK, do not copy this file directly into the target project. Read only the documents needed for the selected scope and apply only the items approved by the user.
 
@@ -18,6 +18,7 @@ Korean version: [../ko/agentOperatingKit.md](../ko/agentOperatingKit.md)
 
 ## Core Rules
 
+- Keep root `AGENTS.md` short enough to read every session. Prefer 50-100 lines for small projects.
 - Keep only the core instructions that are safe to read every time in `AGENTS.md`.
 - Split long procedures into `.agents/workflows/*.md` only for projects that use Superpowers.
 - Do not create nested `AGENTS.md` files automatically. Create them only after user approval when repeated, scope-specific rules exist.
@@ -27,12 +28,28 @@ Korean version: [../ko/agentOperatingKit.md](../ko/agentOperatingKit.md)
 - Apply AOK in this order: choice-based interview, application proposal, user approval, then implementation.
 - If a project does not use Superpowers, do not provide `.agents/workflows/*.md`; apply only the basic root `AGENTS.md` operating guidance.
 
+AOK succeeds when it reduces the amount of context an agent must read for ordinary work. If applying AOK makes every task read more documents by default, the application is wrong.
+
+## Read Frequency Model
+
+Use read frequency instead of adoption levels.
+
+| Frequency | Files | Rule |
+|---|---|---|
+| Always-read | Root `AGENTS.md` | Keep short and safe to read every session |
+| Routed-read | `.agents/INDEX.md`, nested `AGENTS.md` | Read only when the task enters that area or needs routing |
+| Task-read | Selected `.agents/workflows/*.md` | Read only for the matching repeated task |
+| Reference-read | ADR, current status, version history | Read only when the task depends on that source of truth |
+| Exception-read | Work log, archive | Read only for rollback, recovery, incident investigation, regression tracing, or historical preservation |
+
 ## Templates
 
 | Purpose | File |
 |---|---|
 | Global Codex instructions | [aok/templates/global-agents.md](aok/templates/global-agents.md) |
 | Repo root `AGENTS.md` | [aok/templates/repo-agents.md](aok/templates/repo-agents.md) |
+| Document map section | [aok/templates/document-map.md](aok/templates/document-map.md) |
+| Agent instruction governance section | [aok/templates/agent-instruction-governance.md](aok/templates/agent-instruction-governance.md) |
 | `.agents/INDEX.md` | [aok/templates/agents-index.md](aok/templates/agents-index.md) |
 | Agent instruction change proposal chat form | [aok/templates/agent-change-proposal.md](aok/templates/agent-change-proposal.md) |
 | Nested `AGENTS.md` | [aok/templates/subdir-agents.md](aok/templates/subdir-agents.md) |

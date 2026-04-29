@@ -8,10 +8,11 @@ This document is the source catalog for AOK paths and file roles. Component sele
   Suggest or modify only when the user explicitly selects it.
 
 <repo>/AGENTS.md
-  Project structure, common commands, verification routing, document map, and instruction-file governance.
+  Short always-read project instructions: purpose, common commands, verification routing, and minimal document routing.
+  Keep optional document maps and instruction governance sections only when selected.
 
 <repo>/.agents/INDEX.md
-  Index of workflows and approved agent instruction files.
+  Routed-read index of workflows and approved agent instruction files.
 
 <repo>/.agents/workflows/*.md
   Task-specific procedure documents such as feature work, bug fixes, and refactors.

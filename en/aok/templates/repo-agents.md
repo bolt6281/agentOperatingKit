@@ -1,184 +1,62 @@
 # Project AGENTS.md
 
-## Project Overview
+Use this as the minimal root `AGENTS.md` template. Keep it short enough to read every session. Prefer 50-100 lines for small projects.
 
-- This project is `[what the product/tool does]`.
-- Primary users are `[user type or usage context]`.
-- This project prioritizes `[stability/speed/auditability/UX/operational convenience/etc.]`.
+Do not paste optional workflows, long document governance rules, work logs, ADR content, or archive summaries into this file. Put optional details behind explicit read conditions.
 
-## Codebase Structure
+## Project
 
-| Path | Role | Check Before Editing | Risk / Notes |
-|---|---|---|---|
-| `[path]` | `[frontend/backend/data/infra/shared library/etc.]` | `[related docs/tests/dependencies]` | `[why changes here are risky]` |
+- Purpose: `[what the product/tool does]`
+- Primary users: `[user type or usage context]`
+- Current priority: `[stability/speed/auditability/UX/operational convenience/etc.]`
 
-- Clearly separate frontend, backend, data, infrastructure, and shared library boundaries.
-- Mark high-risk areas such as public APIs, DB schema, auth/authz, payments, deployment, build, and CI.
-- If specific documents or tests must be read before editing an area, list them here.
+## Before Work
+
+- Read this file first.
+- Read only the task-relevant documents listed below.
+- Do not create, move, archive, deprecate, or delete project documents without approval.
+- If requirements, docs, or verification commands conflict, report the conflict before changing files.
 
 ## Common Commands
 
 - Install: `[command]`
-- Full dev server: `[command]`
-- Full build: `[command]`
-- Full verification or the closest local equivalent to CI: `[command]`
+- Test: `[command]`
+- Lint/typecheck: `[command]`
+- Build: `[command]`
 
-Area-specific lint, typecheck, test, and single-test commands follow the relevant nested `AGENTS.md`.
+If a command is unknown, do not invent it. Put it in `Items To Confirm`.
 
 ## Verification Routing
 
-| Change Area | Instructions To Read First | Notes |
+| Change | Read First | Verify With |
 |---|---|---|
-| Frontend | `[example: apps/web/AGENTS.md]` | UI, routing, state, style changes |
-| API / Backend | `[example: apps/api/AGENTS.md]` | request/response, auth, server logic |
-| DB / Data | `[example: packages/db/AGENTS.md]` | schema, migrations, seeds, queries |
-| Infra / Deployment / CI | `[example: infra/AGENTS.md or docs/deploy.md]` | deployment, build, workflows |
-| Docs | `[example: docs/AGENTS.md or .agents/workflows/docs-change.md]` | docs structure, ADR, policy changes |
+| Code | `[path or "none"]` | `[test/lint/typecheck/build command]` |
+| Docs | `[path or "none"]` | `[link check or affected-reference check]` |
+| Risky change | `[path or approval rule]` | `[rollback/CI/deploy verification]` |
 
-- If multiple areas are changed, check all relevant nested `AGENTS.md` verification rules.
-- If an area has no nested `AGENTS.md`, inspect related package scripts, README, and existing CI config, then report executable verification commands to the user.
-- If verification commands cannot be found, do not invent them. Report the candidates and uncertainty.
+If multiple areas are changed, apply every relevant verification route.
 
-## Document Map
+## Docs To Read
 
-List only documents that the current project actually uses as references. Do not list documents that do not exist or future candidates.
-Manage general project documents in this document map. Manage agent instructions, workflows, and project-specific skills in `.agents/INDEX.md`.
+List only existing documents that the project actually uses. Keep read conditions specific.
 
-| Document | Path | Status | Source Status | Read When | Update When |
-|---|---|---|---|---|---|
-| `[document name]` | `[path]` | active | source of truth / reference | `[read condition]` | `[update condition]` |
+| When | Read |
+|---|---|
+| Feature work | `[path or none]` |
+| Bug fix | `[path or none]` |
+| Architecture or product decision | `[path or none]` |
+| Deployment, CI, auth, DB, or other risky work | `[path or none]` |
+| Rollback, recovery, incident investigation, or regression tracing | `[path or none]` |
 
 Read only the documents relevant to the task.
 
-### Additional Documentation Governance Candidates
+## Optional Extensions
 
-Review these only when documentation governance is needed. Default paths and structures follow AOK `file-structure.md`. List a document in the map above only when it exists or is currently used as a reference.
+- Add [document-map.md](document-map.md) only when documents need source-of-truth status, explicit read conditions, or review state.
+- Add [agent-instruction-governance.md](agent-instruction-governance.md) only when agent instruction files need approval rules.
+- Add `.agents/INDEX.md` only when workflows, nested `AGENTS.md`, or project-specific skills need routing.
+- Add `.agents/workflows/*.md` only for projects that use Superpowers and have repeated task procedures.
 
-| Candidate | Role | Add To Document Map When |
-|---|---|---|
-| ADR | product, architecture, UX, data, and operations decisions | it is the source of truth for current decisions |
-| Current status | current operating state, verification baseline, deployment/external dependencies, remaining risks | it must be checked at the start of relevant work |
-| Version history | versions, release baselines, deployment artifacts | the project has version or release baselines to manage |
-| Work log | historical work used for recovery, rollback, incident investigation, or regression tracing | it is a special-case reference, not a default read |
-| Archive | deprecated, backup, and original reference material | it is preserved history, not current source of truth |
-| Superpowers outputs | specs, plans, review results | an output has been registered as an official reference |
-
-`docs/current-status.md` should contain only the current operating baseline. Put past release changes in `docs/VERSION_HISTORY.md`, recovery or rollback work history in `docs/work-log.md` when needed, and decision rationale in ADRs.
-
-`docs/work-log.md` is not created by default and is not read at the start of ordinary work. Create it as a history sink only when long-running operational notes repeat and cannot be tracked well elsewhere. Read it only for rollback, recovery, incident investigation, or regression tracing.
-
-For ADR path and domain examples, follow AOK `file-structure.md` and the `adr.md` template.
-
-## Document Map Maintenance Rules
-
-Project documents age like code. If the document map no longer matches the actual source-of-truth documents, do not trust the map.
-
-### What To Index
-
-Index only:
-
-- Current policy documents
-- Product, architecture, API, deployment, data, and operations reference documents
-- Repeatedly used work guides
-- Documents that are the current source of truth for decisions
-
-Do not index by default:
-
-- One-off research notes
-- Temporary work logs
-- Old drafts
-- Backups
-- References inside archive
-- Intermediate agent outputs that are not official references
-
-### Update When
-
-Update the document map in the same task when:
-
-- A new source-of-truth document is created.
-- A source-of-truth document is moved, renamed, or deleted.
-- A document is no longer source of truth.
-- A document is moved into `docs/archive/`.
-- Product policy, API contract, deployment procedure, data structure, or operations rule changes.
-- Document conflicts are resolved by choosing one document as primary.
-
-### Document Status
-
-Documents in the map use one of these statuses:
-
-- `active`: current reference document
-- `draft`: draft under review
-- `deprecated`: no longer source of truth, but kept for transition reference
-- `archived`: preserved for history
-
-Do not use `deprecated` or `archived` documents as the source for new work.
-
-## Work Procedure Documents
-
-- Create `.agents/workflows/*.md` only in projects that use Superpowers.
-- For complex tasks, check `.agents/INDEX.md` and read only the relevant workflow.
-- Do not read all workflow documents by default.
-
-## Agent Instruction File Governance
-
-The following files are managed policy files:
-
-- `AGENTS.md`
-- `**/AGENTS.md`
-- `.agents/**`
-
-These files have separate rules depending on change type.
-
-### Changes Allowed Without Approval
-
-The following are meaning-preserving cleanup changes and may be done without user approval:
-
-- Typo fixes
-- Broken internal link fixes
-- Path corrections after actual file moves
-- Clearly outdated date or filename corrections
-- Table formatting and Markdown formatting cleanup
-- Filling missing metadata for already-approved files in INDEX
-- Marking deleted files as `deprecated` or `archived` in INDEX
-
-The meaning must not change. If meaning may change, treat it as approval-required.
-
-### Changes Requiring User Approval
-
-The following require user approval:
-
-- Creating a new root or nested `AGENTS.md`
-- Creating a new `.agents/workflows/*.md`
-- Changing behavior rules in existing instructions
-- Adding, removing, or changing verification commands
-- Changing scope
-- Changing owner or responsibility boundaries
-- Adding, removing, or reordering workflow steps
-- Changing document creation policy, approval policy, or risky-work policy
-- Changing required or forbidden agent behavior
-
-### Changes Allowed By Explicit Request
-
-If the user explicitly says "modify this instruction", "add this workflow", or "make this structure", changes may be made within that requested scope.
-
-Do not create additional instructions or workflows beyond the requested scope without proposing them first.
-
-### Ambiguous Cases
-
-If it is unclear whether a change is cleanup or a policy change, treat it as a policy change and propose it first.
-
-If a new nested `AGENTS.md`, meaning change to existing instructions, or meaning change to workflow documents seems necessary, do not edit immediately. First propose it using `.agents/INDEX.md` or the AOK `agent-change-proposal.md` template.
-
-After explicit approval, create or meaningfully change the file. Update `.agents/INDEX.md` in the same task.
-
-## Placeholder Handling
-
-Applied `AGENTS.md` files must not contain unresolved placeholders such as `[command]`, `[path]`, `[document]`, or TODO.
-
-Unknown values go into a separate section:
-
-```md
 ## Items To Confirm
 
 - `[item]`: `[why confirmation is needed]`
-```
