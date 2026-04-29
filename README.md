@@ -1,112 +1,10 @@
 # Agent Operating Kit
 
-Agent Operating Kit(AOK)는 agent와 함께 프로젝트를 운영하기 위한 문서/워크플로우 템플릿 팩입니다.
-
-AOK는 코드를 대신 작성하는 프레임워크가 아니라, agent가 프로젝트를 읽고, 작업 범위를 판단하고, 문서를 정리하고, 반복 작업 절차를 안정적으로 따르도록 만드는 운영 키트입니다.
-
-English version: [English](#english)
-
-## 왜 필요한가
-
-agent와 프로젝트를 오래 같이 운영하다 보면 다음 문제가 자주 생깁니다.
-
-- 기획만 있는 repo에서 개발을 시작하려는데 agent가 무엇부터 봐야 할지 모른다.
-- 기능 추가, 버그 수정, 리팩터링, 문서 변경의 작업 파이프라인이 매번 흔들린다.
-- agent가 문서를 많이 만들었지만 코드와 문서, 문서와 문서 사이의 기준이 어긋난다.
-- `AGENTS.md`나 설계 문서가 너무 커져서 작은 작업에도 컨텍스트를 많이 소모한다.
-- 기존 프로젝트에 agent 운영 규칙을 도입하고 싶지만 기존 문서를 잃거나 덮어쓸 위험이 있다.
-
-AOK는 이런 상황에서 프로젝트별 agent 지침, workflow, 문서 지도, 문서 거버넌스 규칙을 작고 명확한 파일로 나누어 적용하게 합니다.
-
-## 핵심 원칙
-
-- 프로젝트에 필요한 구성요소만 선택해 적용한다.
-- 사용자에게 필요한 적용 범위를 선택지로 먼저 묻는다.
-- 기존 프로젝트 문서는 먼저 읽고, 정보 손실 없이 AOK 구조에 반영한다.
-- 기존 문서 이동, 삭제, deprecated/archive 처리는 사용자 승인 후 진행한다.
-- 긴 절차는 Superpowers를 사용하는 프로젝트에서만 `.agents/workflows/*.md`로 분리한다.
-- Superpowers를 쓰지 않는 프로젝트에는 AOK workflow 문서를 제공하지 않고, 루트 `AGENTS.md`의 기본 작업 원칙만 적용한다.
-- `~/.codex/AGENTS.md` 같은 전역 지침은 기본 적용 대상이 아니며, 사용자가 선택한 경우에만 다룬다.
-
-## 빠른 시작
-
-agent에게 다음처럼 요청합니다.
-
-```text
-이 repo에 Agent Operating Kit를 적용하고 싶어.
-ko/agentOperatingKit.md를 먼저 읽고, AOK 적용 가이드라인에 따라 나에게 선택지를 제시해줘.
-기존 파일은 바로 수정하지 말고 적용안을 먼저 제안해줘.
-```
-
-agent는 먼저 [ko/agentOperatingKit.md](ko/agentOperatingKit.md)를 읽고, 필요한 경우 아래 문서를 순서대로 확인합니다.
-
-1. [AOK 적용 가이드라인](ko/aok/application-guide.md)
-2. [구성요소 선택 가이드](ko/aok/component-selection.md)
-3. [권장 파일 구조](ko/aok/file-structure.md)
-4. workflow를 적용할 경우 [Superpowers 설치 및 workflow 적용 전제](ko/aok/superpowers-install.md)
-5. 선택한 템플릿 또는 workflow 파일
-
-## 구성요소 선택
-
-AOK는 정해진 단계를 따라 설치하는 도구가 아니라, 프로젝트 상황에 따라 필요한 구성요소만 고르는 템플릿 팩입니다.
-
-| 구성요소 | 쓸 때 |
-|---|---|
-| 루트 `AGENTS.md` | agent가 항상 알아야 하는 프로젝트 개요, 명령어, 검증 라우팅이 필요할 때 |
-| `.agents/INDEX.md` | workflow, 하위 agent 지침, 프로젝트 전용 skill을 색인해야 할 때 |
-| `.agents/workflows/*.md` | Superpowers를 사용하고 같은 작업 절차가 반복될 때 |
-| ADR / current status / version history | 장기 운영, 문서 정합성, 의사결정 이력 관리가 필요할 때 |
-| `docs/work-log.md` | 롤백, 복구, 장애 조사, 회귀 추적에 필요한 과거 흐름을 따로 남겨야 할 때 |
-
-자세한 기준은 [ko/aok/component-selection.md](ko/aok/component-selection.md)를 봅니다.
-
-## 저장소 구조
-
-```text
-README.md
-ko/
-  aok/
-  agentOperatingKit.md
-en/
-  aok/
-  agentOperatingKit.md
-```
-
-## 주요 문서
-
-| 문서 | 역할 |
-|---|---|
-| [ko/agentOperatingKit.md](ko/agentOperatingKit.md) | AOK 한국어 인덱스 |
-| [ko/aok/application-guide.md](ko/aok/application-guide.md) | 적용 전 사용자 인터뷰, 기존 프로젝트 적용 원칙 |
-| [ko/aok/component-selection.md](ko/aok/component-selection.md) | AOK 구성요소 선택 기준 |
-| [ko/aok/file-structure.md](ko/aok/file-structure.md) | AOK가 권장하는 파일 구조 |
-| [ko/aok/superpowers-install.md](ko/aok/superpowers-install.md) | Superpowers 설치와 workflow 적용 전제 |
-
-## 템플릿과 Workflow
-
-템플릿과 workflow의 전체 카탈로그는 [ko/agentOperatingKit.md](ko/agentOperatingKit.md)에 있습니다.
-
-README는 프로젝트 소개와 빠른 시작만 다룹니다. agent가 실제로 AOK를 적용할 때는 `ko/agentOperatingKit.md`를 원본 인덱스로 읽고, 선택한 범위에 필요한 템플릿이나 workflow 파일만 추가로 확인합니다.
-
-Workflow 템플릿은 Superpowers를 사용하는 프로젝트에만 제공합니다.
-
-## Superpowers와의 관계
-
-AOK의 workflow 템플릿은 [Superpowers](https://github.com/obra/superpowers) 스킬 기반으로 작성되어 있습니다. 따라서 workflow 문서를 쓰려면 먼저 사용하는 LLM 환경에 Superpowers를 설치해야 합니다.
-
-Superpowers를 쓰지 않는 환경에서는 workflow 문서를 변환해 제공하지 않습니다. 이 경우 AOK는 루트 `AGENTS.md` 중심의 기본 운영 지침까지만 제공합니다.
-
-## 라이선스
-
-MIT License로 배포합니다. 자세한 내용은 [LICENSE](LICENSE)를 확인하세요.
-
----
-
-# English
-
 Agent Operating Kit(AOK) is a documentation and workflow template pack for operating software projects with coding agents.
 
 AOK is not a code framework. It is an operating kit that helps an agent understand a project, choose the right workflow, keep project documents aligned, and avoid wasting context on oversized instruction files.
+
+Korean version: [한국어](#한국어)
 
 ## Why AOK Exists
 
@@ -202,3 +100,107 @@ AOK does not provide converted workflow documents for environments that do not u
 ## License
 
 Released under the MIT License. See [LICENSE](LICENSE) for details.
+
+---
+
+# 한국어
+
+Agent Operating Kit(AOK)는 agent와 함께 프로젝트를 운영하기 위한 문서/워크플로우 템플릿 팩입니다.
+
+AOK는 코드를 대신 작성하는 프레임워크가 아니라, agent가 프로젝트를 읽고, 작업 범위를 판단하고, 문서를 정리하고, 반복 작업 절차를 안정적으로 따르도록 만드는 운영 키트입니다.
+
+English version: [English](#agent-operating-kit)
+
+## 왜 필요한가
+
+agent와 프로젝트를 오래 같이 운영하다 보면 다음 문제가 자주 생깁니다.
+
+- 기획만 있는 repo에서 개발을 시작하려는데 agent가 무엇부터 봐야 할지 모른다.
+- 기능 추가, 버그 수정, 리팩터링, 문서 변경의 작업 파이프라인이 매번 흔들린다.
+- agent가 문서를 많이 만들었지만 코드와 문서, 문서와 문서 사이의 기준이 어긋난다.
+- `AGENTS.md`나 설계 문서가 너무 커져서 작은 작업에도 컨텍스트를 많이 소모한다.
+- 기존 프로젝트에 agent 운영 규칙을 도입하고 싶지만 기존 문서를 잃거나 덮어쓸 위험이 있다.
+
+AOK는 이런 상황에서 프로젝트별 agent 지침, workflow, 문서 지도, 문서 거버넌스 규칙을 작고 명확한 파일로 나누어 적용하게 합니다.
+
+## 핵심 원칙
+
+- 프로젝트에 필요한 구성요소만 선택해 적용한다.
+- 사용자에게 필요한 적용 범위를 선택지로 먼저 묻는다.
+- 기존 프로젝트 문서는 먼저 읽고, 정보 손실 없이 AOK 구조에 반영한다.
+- 기존 문서 이동, 삭제, deprecated/archive 처리는 사용자 승인 후 진행한다.
+- 긴 절차는 Superpowers를 사용하는 프로젝트에서만 `.agents/workflows/*.md`로 분리한다.
+- Superpowers를 쓰지 않는 프로젝트에는 AOK workflow 문서를 제공하지 않고, 루트 `AGENTS.md`의 기본 작업 원칙만 적용한다.
+- `~/.codex/AGENTS.md` 같은 전역 지침은 기본 적용 대상이 아니며, 사용자가 선택한 경우에만 다룬다.
+
+## 빠른 시작
+
+agent에게 다음처럼 요청합니다.
+
+```text
+이 repo에 Agent Operating Kit를 적용하고 싶어.
+ko/agentOperatingKit.md를 먼저 읽고, AOK 적용 가이드라인에 따라 나에게 선택지를 제시해줘.
+기존 파일은 바로 수정하지 말고 적용안을 먼저 제안해줘.
+```
+
+agent는 먼저 [ko/agentOperatingKit.md](ko/agentOperatingKit.md)를 읽고, 필요한 경우 아래 문서를 순서대로 확인합니다.
+
+1. [AOK 적용 가이드라인](ko/aok/application-guide.md)
+2. [구성요소 선택 가이드](ko/aok/component-selection.md)
+3. [권장 파일 구조](ko/aok/file-structure.md)
+4. workflow를 적용할 경우 [Superpowers 설치 및 workflow 적용 전제](ko/aok/superpowers-install.md)
+5. 선택한 템플릿 또는 workflow 파일
+
+## 구성요소 선택
+
+AOK는 정해진 단계를 따라 설치하는 도구가 아니라, 프로젝트 상황에 따라 필요한 구성요소만 고르는 템플릿 팩입니다.
+
+| 구성요소 | 쓸 때 |
+|---|---|
+| 루트 `AGENTS.md` | agent가 항상 알아야 하는 프로젝트 개요, 명령어, 검증 라우팅이 필요할 때 |
+| `.agents/INDEX.md` | workflow, 하위 agent 지침, 프로젝트 전용 skill을 색인해야 할 때 |
+| `.agents/workflows/*.md` | Superpowers를 사용하고 같은 작업 절차가 반복될 때 |
+| ADR / current status / version history | 장기 운영, 문서 정합성, 의사결정 이력 관리가 필요할 때 |
+| `docs/work-log.md` | 롤백, 복구, 장애 조사, 회귀 추적에 필요한 과거 흐름을 따로 남겨야 할 때 |
+
+자세한 기준은 [ko/aok/component-selection.md](ko/aok/component-selection.md)를 봅니다.
+
+## 저장소 구조
+
+```text
+README.md
+ko/
+  aok/
+  agentOperatingKit.md
+en/
+  aok/
+  agentOperatingKit.md
+```
+
+## 주요 문서
+
+| 문서 | 역할 |
+|---|---|
+| [ko/agentOperatingKit.md](ko/agentOperatingKit.md) | AOK 한국어 인덱스 |
+| [ko/aok/application-guide.md](ko/aok/application-guide.md) | 적용 전 사용자 인터뷰, 기존 프로젝트 적용 원칙 |
+| [ko/aok/component-selection.md](ko/aok/component-selection.md) | AOK 구성요소 선택 기준 |
+| [ko/aok/file-structure.md](ko/aok/file-structure.md) | AOK가 권장하는 파일 구조 |
+| [ko/aok/superpowers-install.md](ko/aok/superpowers-install.md) | Superpowers 설치와 workflow 적용 전제 |
+
+## 템플릿과 Workflow
+
+템플릿과 workflow의 전체 카탈로그는 [ko/agentOperatingKit.md](ko/agentOperatingKit.md)에 있습니다.
+
+README는 프로젝트 소개와 빠른 시작만 다룹니다. agent가 실제로 AOK를 적용할 때는 `ko/agentOperatingKit.md`를 원본 인덱스로 읽고, 선택한 범위에 필요한 템플릿이나 workflow 파일만 추가로 확인합니다.
+
+Workflow 템플릿은 Superpowers를 사용하는 프로젝트에만 제공합니다.
+
+## Superpowers와의 관계
+
+AOK의 workflow 템플릿은 [Superpowers](https://github.com/obra/superpowers) 스킬 기반으로 작성되어 있습니다. 따라서 workflow 문서를 쓰려면 먼저 사용하는 LLM 환경에 Superpowers를 설치해야 합니다.
+
+Superpowers를 쓰지 않는 환경에서는 workflow 문서를 변환해 제공하지 않습니다. 이 경우 AOK는 루트 `AGENTS.md` 중심의 기본 운영 지침까지만 제공합니다.
+
+## 라이선스
+
+MIT License로 배포합니다. 자세한 내용은 [LICENSE](LICENSE)를 확인하세요.
