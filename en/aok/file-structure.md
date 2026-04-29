@@ -1,5 +1,7 @@
 # Recommended File Structure
 
+This document is the source catalog for AOK paths and file roles. Adoption levels, application guides, and templates describe when to use files, but if a default path or structure conflicts, prefer this document.
+
 ```text
 ~/.codex/AGENTS.md (optional)
   Personal global principles applied across all projects.
@@ -62,6 +64,7 @@
   Major version changes and decision history.
 
 <repo>/docs/work-log.md (optional)
-  Work logs, operational notes, and temporary investigation records.
-  Create only for long-running operational notes that are hard to track in issues, PRs, or plans.
+  Historical implementation flow, rollback/recovery references, and long-running operational notes.
+  Do not read it at the start of ordinary work; use it as a history sink by default.
+  Read it only when rollback, recovery, incident investigation, or regression tracing needs past context.
 ```

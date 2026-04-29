@@ -2,7 +2,7 @@
 
 Use this template in long-running projects to keep a short snapshot of the current operating baseline.
 
-`docs/current-status.md` is not a work journal. Put history in `docs/VERSION_HISTORY.md`, long-running notes in `docs/work-log.md` when needed, and decision rationale in ADRs.
+`docs/current-status.md` is not a work journal. Put release history in `docs/VERSION_HISTORY.md`, recovery or rollback work history in `docs/work-log.md` when needed, and decision rationale in ADRs. Do not read `docs/work-log.md` at the start of ordinary work.
 
 # Current Status
 

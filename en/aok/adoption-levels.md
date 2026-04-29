@@ -55,13 +55,10 @@ Use when:
 Create:
 
 - All selected Level 2 files
-- For small projects, `<repo>/docs/adr.md`
-- For larger ADR sets, `<repo>/docs/adr/INDEX.md` and `<repo>/docs/adr/<domain>/<decision-topic>.md`
-- `<repo>/docs/current-status.md` only when needed
-- `<repo>/docs/VERSION_HISTORY.md`
-- `<repo>/docs/work-log.md` only when needed
-- Selected nested `<area>/AGENTS.md` files
-- `<repo>/docs/README.md` or `<repo>/docs/INDEX.md` only when documents grow enough to need a docs index
+- Selected Level 3 documentation governance files
+- Needed nested `AGENTS.md` files
+
+Use [Recommended File Structure](file-structure.md) for default paths and file roles. This document only decides when Level 3 documents should exist.
 
 Rules:
 
@@ -70,10 +67,18 @@ Rules:
 - Prefer updating existing documents over adding new documents.
 - Index only current source-of-truth documents and repeatedly referenced documents.
 - Create `docs/current-status.md` only when the project needs a short current operating baseline, verification baseline, deployment/external dependency snapshot, and remaining risk list.
-- Create `docs/work-log.md` only for long-running operational notes that are hard to track in issues, PRs, or plans.
+- Create `docs/work-log.md` only for long-running operational notes that are hard to track in issues, PRs, or plans. Do not read it during ordinary work; read it only for rollback, recovery, incident investigation, or regression tracing.
 - Promote a large single `docs/adr.md` into a `docs/adr/` directory structure.
 - Prefer domain and topic names over plain numbers for ADR filenames. Examples: `docs/adr/product/notification-policy.md`, `docs/adr/architecture/app-web-boundary.md`, `docs/adr/operations/deployment-policy.md`.
 - `docs/adr/INDEX.md` should be a routing table by change area, not just a chronological list.
+
+## Representative Adoption Examples
+
+| Project Situation | Default Recommendation | Files Not To Create | Reason |
+|---|---|---|---|
+| Small new CLI or personal experiment repo | Level 1: root `AGENTS.md` only | `.agents/`, ADR, VERSION_HISTORY, work-log | Work procedures and document governance have not repeated yet. Leave unconfirmed test/build commands in `Items To Confirm`. |
+| Existing small app without Superpowers where README, plan, and architecture docs conflict | Custom: Level 1 + a short `docs/current-status.md` only if needed | `.agents/workflows/`, ADR, VERSION_HISTORY, work-log | Restoring document consistency does not automatically require workflows or full Level 3 structure. Preserve existing docs and mark conflicts as candidates. |
+| Public open-source library with existing README, CONTRIBUTING, CHANGELOG, or release notes | Custom: Level 1 + strengthen existing contributor-facing docs | `.agents/workflows/`, `docs/VERSION_HISTORY.md`, ADR, current-status, work-log | Avoid adding burden for external contributors. Prefer improving the existing CHANGELOG, release notes, or CONTRIBUTING before creating a new release-history file. |
 
 ## Custom Adoption
 
@@ -110,4 +115,4 @@ Consider promoting to the next level when one of these patterns repeats:
 - Verification commands or work boundaries are often confused.
 - Decision history begins to drift away from the code.
 
-Do not create Level 3 structure up front. Add only the files that are needed when they become needed.
+Do not create Level 3 structure up front. Add only the files that are needed when they become needed, and confirm default paths in [Recommended File Structure](file-structure.md).

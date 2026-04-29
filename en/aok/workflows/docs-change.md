@@ -7,6 +7,8 @@
 
 Prevent document sprawl and maintain consistency between existing documents and policies.
 
+Use this workflow for ordinary documentation, policy, and ADR changes after AOK has been applied. For first-time AOK adoption or migration of existing project documents into AOK structure, follow `application-guide.md` first.
+
 ## Procedure
 
 1. Before creating a new document, check whether an existing document can solve the need.

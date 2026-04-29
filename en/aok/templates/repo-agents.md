@@ -42,6 +42,7 @@ Area-specific lint, typecheck, test, and single-test commands follow the relevan
 ## Document Map
 
 List only documents that the current project actually uses as references. Do not list documents that do not exist or future candidates.
+Manage general project documents in this document map. Manage agent instructions, workflows, and project-specific skills in `.agents/INDEX.md`.
 
 | Document | Path | Status | Source Status | Read When | Update When |
 |---|---|---|---|---|---|
@@ -51,32 +52,22 @@ Read only the documents relevant to the task.
 
 ### Additional Candidates For Level 3
 
-Create or list these only when Level 3 documentation governance is selected.
+Review these only when Level 3 documentation governance is selected. Default paths and structures follow AOK `file-structure.md`. List a document in the map above only when it exists or is currently used as a reference.
 
-| Candidate | Default Path | Role |
+| Candidate | Role | Add To Document Map When |
 |---|---|---|
-| ADR | `docs/adr.md` or `docs/adr/INDEX.md` + `docs/adr/<domain>/<decision-topic>.md` | product, architecture, UX, data, operational decisions |
-| Current status | `docs/current-status.md` | current operating state, verification baseline, deployment/external dependencies, remaining risks |
-| Version history | `docs/VERSION_HISTORY.md` | major changes and decision history |
-| Work log | `docs/work-log.md` | long-running operational notes that cannot be tracked well in issues, PRs, or plans |
-| Archive | `docs/archive/` | deprecated, backup, and original reference material |
-| Superpowers outputs | `docs/superpowers/` | specs, plans, review results |
+| ADR | product, architecture, UX, data, and operations decisions | it is the source of truth for current decisions |
+| Current status | current operating state, verification baseline, deployment/external dependencies, remaining risks | it must be checked at the start of relevant work |
+| Version history | versions, release baselines, deployment artifacts | the project has version or release baselines to manage |
+| Work log | historical work used for recovery, rollback, incident investigation, or regression tracing | it is a special-case reference, not a default read |
+| Archive | deprecated, backup, and original reference material | it is preserved history, not current source of truth |
+| Superpowers outputs | specs, plans, review results | an output has been promoted to an official reference |
 
-`docs/current-status.md` should contain only the current operating baseline. Put past changes in `docs/VERSION_HISTORY.md`, long-running notes in `docs/work-log.md` when needed, and decision rationale in ADRs.
+`docs/current-status.md` should contain only the current operating baseline. Put past release changes in `docs/VERSION_HISTORY.md`, recovery or rollback work history in `docs/work-log.md` when needed, and decision rationale in ADRs.
 
-`docs/work-log.md` is not created by default. Create it only when long-running operational notes repeat and cannot be tracked well elsewhere.
+`docs/work-log.md` is not created by default and is not read at the start of ordinary work. Create it as a history sink only when long-running operational notes repeat and cannot be tracked well elsewhere. Read it only for rollback, recovery, incident investigation, or regression tracing.
 
-If a single `docs/adr.md` grows too large, promote it to `docs/adr/INDEX.md` plus `docs/adr/<domain>/<decision-topic>.md` instead of a flat sequentially numbered list.
-
-ADR domain examples:
-
-| Domain | Example Path | Use When |
-|---|---|---|
-| product | `docs/adr/product/notification-policy.md` | product policy, feature scope, user-flow decisions |
-| architecture | `docs/adr/architecture/app-web-boundary.md` | app/web/server/external-system boundaries |
-| data | `docs/adr/data/job-status-model.md` | DB, schema, state model, migration rules |
-| operations | `docs/adr/operations/deployment-policy.md` | deployment, versioning, operations, rollback policy |
-| ux | `docs/adr/ux/worker-flow.md` | UX principles, screen flows, interaction rules |
+For ADR path and domain examples, follow AOK `file-structure.md` and the `adr.md` template.
 
 ## Document Map Maintenance Rules
 

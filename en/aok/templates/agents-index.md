@@ -1,10 +1,11 @@
 # Agent Work Procedure Index
 
 Read only the documents relevant to the current task. Do not read all workflow documents by default.
+This file indexes only agent instruction files, workflows, and project-specific skills. Manage general project documents such as product docs, operations docs, ADRs, releases, and work logs in the root `AGENTS.md` document map.
 
 ## Common Routing
 
-- If the user instruction is unclear, requirements conflict, or a risky assumption appears, clarify first.
+- If the user instruction is unclear, requirements conflict, or a risky assumption appears, ask the minimum necessary question first.
 - If an implementation plan has already been approved, execute that plan instead of redesigning the work.
 - For medium-sized or high-risk work, consider a separate workspace, rollback method, and impact scope first.
 - Even when two or more tasks are independent, parallelize only if the user explicitly allows parallel or subagent work.
@@ -97,17 +98,18 @@ If no workflow has been approved, remove the example row above and write:
 ## Available Workflow Candidates
 
 The items below are candidates provided by AOK. Only applied items should be listed in the `Workflow Documents` table.
+Do not copy every candidate into the active workflow list. Select only workflows that will actually be used after checking repetition frequency, failure cost, Superpowers usage, and recommended companion workflows.
 
-| Work Type | Candidate Document |
-|---|---|
-| Feature or behavior change | `.agents/workflows/feature-change.md` |
-| Bug fix | `.agents/workflows/bugfix.md` |
-| Refactor | `.agents/workflows/refactor.md` |
-| Documentation, policy, or ADR change | `.agents/workflows/docs-change.md` |
-| Config, build, CI, dependency, deployment, or DB change | `.agents/workflows/risky-change.md` |
-| Research or technical decision | `.agents/workflows/research-decision.md` |
-| Review feedback handling | `.agents/workflows/review-feedback.md` |
-| Repeated failure or project-specific skill extraction | `.agents/workflows/repeated-failure.md` |
+| Work Type | Candidate Document | Repetition Signal | Failure Cost | Superpowers Required | Recommended Companion |
+|---|---|---|---|---|---|
+| Feature or behavior change | `.agents/workflows/feature-change.md` | Feature or behavior changes repeat and need requirement/scope/verification control | medium | yes | `risky-change.md` when high-risk features are common |
+| Bug fix | `.agents/workflows/bugfix.md` | Reproduction, regression checks, and root-cause work repeat | medium | yes | `risky-change.md` when incidents or operational regressions are common |
+| Refactor | `.agents/workflows/refactor.md` | Structure changes that must preserve external behavior repeat | medium | yes | `review-feedback.md` for large shared-boundary changes |
+| Documentation, policy, or ADR change | `.agents/workflows/docs-change.md` | Document meaning, source of truth, ADRs, or agent instructions change repeatedly | low to medium | yes | Use `application-guide.md` for first-time AOK adoption instead of this workflow |
+| Config, build, CI, dependency, deployment, or DB change | `.agents/workflows/risky-change.md` | DB, deployment, CI, secret, auth/authz, payment, or security changes repeat or have high failure cost | high | yes | Create first for high-risk features, operational bugs, and migration work |
+| Research or technical decision | `.agents/workflows/research-decision.md` | Comparative research and decision rationale repeat | medium to high | yes | `feature-change.md` or `risky-change.md` if implementation follows |
+| Review feedback handling | `.agents/workflows/review-feedback.md` | Review feedback needs validity checks and scope control before changes | medium | yes | Can pair with feature or refactor workflows |
+| Repeated failure or project-specific skill extraction | `.agents/workflows/repeated-failure.md` | The same failure repeats and tests, lint, or CI cannot prevent it alone | medium to high | yes | Candidate project-specific skill after the judgment procedure stabilizes |
 
 ## Project-Specific Skills
 

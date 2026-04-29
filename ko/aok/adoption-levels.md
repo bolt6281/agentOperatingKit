@@ -47,13 +47,10 @@
 
 생성 파일:
 - Level 2 전체
-- 작은 프로젝트는 `<repo>/docs/adr.md`
-- ADR이 커진 프로젝트는 `<repo>/docs/adr/INDEX.md`와 `<repo>/docs/adr/<영역>/<결정-주제>.md`
-- 필요할 때만 `<repo>/docs/current-status.md`
-- `<repo>/docs/VERSION_HISTORY.md`
-- 필요할 때만 `<repo>/docs/work-log.md`
-- 필요한 하위 `<영역>/AGENTS.md`
-- 문서가 많아진 경우 `<repo>/docs/README.md` 또는 `<repo>/docs/INDEX.md`
+- 선택한 Level 3 문서 거버넌스 파일
+- 필요한 하위 `AGENTS.md`
+
+기본 경로와 파일 역할은 [권장 파일 구조](file-structure.md)를 따른다. 이 문서는 어떤 상황에서 Level 3 문서를 만들지 결정하는 기준만 둔다.
 
 원칙:
 - 하위 `AGENTS.md`는 반복 규칙과 명확한 적용 범위가 있을 때만 만든다.
@@ -61,10 +58,18 @@
 - 문서 추가보다 기존 문서 갱신을 우선한다.
 - 문서 색인은 현재 기준 문서와 반복 참조 문서만 대상으로 한다.
 - `docs/current-status.md`는 현재 운영 상태, 검증 기준, 배포/외부 의존성, 남은 위험을 짧게 유지해야 할 때만 만든다.
-- `docs/work-log.md`는 issue, PR, plan으로 추적하기 어려운 장기 운영 메모가 있을 때만 만든다.
+- `docs/work-log.md`는 issue, PR, plan으로 추적하기 어려운 장기 운영 메모가 있을 때만 만들고, 평소에는 읽지 않는다. 롤백, 복구, 장애 조사, 회귀 원인 추적처럼 과거 흐름이 필요한 경우에만 읽는다.
 - 단일 `docs/adr.md`가 커지면 `docs/adr/` 디렉터리 구조로 승격한다.
 - ADR 파일명은 단순 번호보다 도메인과 주제를 우선한다. 예: `docs/adr/product/notification-policy.md`, `docs/adr/architecture/app-web-boundary.md`, `docs/adr/operations/deployment-policy.md`
 - `docs/adr/INDEX.md`는 시간순 목록이 아니라 변경 영역별 라우터로 작성한다.
+
+## 대표 적용 예시
+
+| 프로젝트 상황 | 기본 추천 | 만들지 않는 파일 | 이유 |
+|---|---|---|---|
+| 작은 신규 CLI 또는 개인 실험 repo | Level 1: 루트 `AGENTS.md`만 | `.agents/`, ADR, VERSION_HISTORY, work-log | 작업 절차와 문서 거버넌스가 아직 반복되지 않는다. 확인되지 않은 테스트/빌드 명령은 `확인 필요 항목`으로 남긴다. |
+| Superpowers를 쓰지 않는 기존 소규모 앱에서 README, plan, architecture가 충돌함 | Custom: Level 1 + 필요한 경우 짧은 `docs/current-status.md` | `.agents/workflows/`, ADR, VERSION_HISTORY, work-log | 문서 정합성 회복이 목적이어도 workflow와 전체 Level 3 구조를 자동 생성하지 않는다. 기존 문서는 보존하고 충돌 후보로 표시한다. |
+| 공개 오픈소스 라이브러리에서 README, CONTRIBUTING, CHANGELOG 또는 release note가 이미 있음 | Custom: Level 1 + 기존 contributor-facing 문서 보강 | `.agents/workflows/`, `docs/VERSION_HISTORY.md`, ADR, current-status, work-log | 외부 기여자 문서 부담을 늘리지 않는다. 릴리스 기준은 새 파일보다 기존 CHANGELOG, release note, CONTRIBUTING 보강을 우선한다. |
 
 ## Custom 적용
 
@@ -101,4 +106,4 @@ Custom 적용에서도 다음 원칙은 유지한다.
 - 검증 명령이나 작업 경계가 자주 혼동된다.
 - 의사결정 이력이 코드와 어긋나기 시작한다.
 
-처음부터 Level 3 구조를 만들지 않는다. 필요한 순간에 필요한 파일만 추가한다.
+처음부터 Level 3 구조를 만들지 않는다. 필요한 순간에 필요한 파일만 추가하고, 추가할 파일의 기본 경로는 [권장 파일 구조](file-structure.md)를 기준으로 확인한다.

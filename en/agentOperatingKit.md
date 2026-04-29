@@ -34,10 +34,12 @@ Korean version: [../ko/agentOperatingKit.md](../ko/agentOperatingKit.md)
 | Global Codex instructions | [aok/templates/global-agents.md](aok/templates/global-agents.md) |
 | Repo root `AGENTS.md` | [aok/templates/repo-agents.md](aok/templates/repo-agents.md) |
 | `.agents/INDEX.md` | [aok/templates/agents-index.md](aok/templates/agents-index.md) |
-| Agent instruction change proposal | [aok/templates/agent-change-proposal.md](aok/templates/agent-change-proposal.md) |
+| Agent instruction change proposal chat form | [aok/templates/agent-change-proposal.md](aok/templates/agent-change-proposal.md) |
 | Nested `AGENTS.md` | [aok/templates/subdir-agents.md](aok/templates/subdir-agents.md) |
 | ADR | [aok/templates/adr.md](aok/templates/adr.md) |
 | Current status document | [aok/templates/current-status.md](aok/templates/current-status.md) |
+| Version history | [aok/templates/version-history.md](aok/templates/version-history.md) |
+| Work log | [aok/templates/work-log.md](aok/templates/work-log.md) |
 
 ## Workflow Templates
 

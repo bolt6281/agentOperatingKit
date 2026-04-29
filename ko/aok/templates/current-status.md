@@ -2,7 +2,7 @@
 
 이 템플릿은 장기 운영 프로젝트에서 지금 기준으로 믿어야 하는 운영 상태를 짧게 기록할 때 사용한다.
 
-`docs/current-status.md`는 작업 일지가 아니다. 과거 히스토리는 `docs/VERSION_HISTORY.md`, 장기 메모는 필요한 경우 `docs/work-log.md`, 결정 근거는 ADR에 둔다.
+`docs/current-status.md`는 작업 일지가 아니다. 과거 릴리스 기준은 `docs/VERSION_HISTORY.md`, 복구/롤백에 필요한 작업 이력은 필요한 경우 `docs/work-log.md`, 결정 근거는 ADR에 둔다. `docs/work-log.md`는 평소 작업 시작 시 읽는 문서가 아니다.
 
 # 현재 상태
 

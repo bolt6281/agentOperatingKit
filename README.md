@@ -81,32 +81,13 @@ en/
 | [ko/aok/file-structure.md](ko/aok/file-structure.md) | AOK가 권장하는 파일 구조 |
 | [ko/aok/superpowers-install.md](ko/aok/superpowers-install.md) | Superpowers 설치와 workflow 적용 전제 |
 
-## 템플릿
+## 템플릿과 Workflow
 
-| 목적 | 파일 |
-|---|---|
-| 선택 옵션: 전역 Codex 지침 | [ko/aok/templates/global-agents.md](ko/aok/templates/global-agents.md) |
-| repo 루트 `AGENTS.md` | [ko/aok/templates/repo-agents.md](ko/aok/templates/repo-agents.md) |
-| `.agents/INDEX.md` | [ko/aok/templates/agents-index.md](ko/aok/templates/agents-index.md) |
-| Agent 지침 변경 제안 양식 | [ko/aok/templates/agent-change-proposal.md](ko/aok/templates/agent-change-proposal.md) |
-| 하위 `AGENTS.md` | [ko/aok/templates/subdir-agents.md](ko/aok/templates/subdir-agents.md) |
-| ADR | [ko/aok/templates/adr.md](ko/aok/templates/adr.md) |
-| 현재 상태 문서 | [ko/aok/templates/current-status.md](ko/aok/templates/current-status.md) |
+템플릿과 workflow의 전체 카탈로그는 [ko/agentOperatingKit.md](ko/agentOperatingKit.md)에 있습니다.
 
-## Workflow 템플릿
+README는 프로젝트 소개와 빠른 시작만 다룹니다. agent가 실제로 AOK를 적용할 때는 `ko/agentOperatingKit.md`를 원본 인덱스로 읽고, 선택한 범위에 필요한 템플릿이나 workflow 파일만 추가로 확인합니다.
 
 Workflow 템플릿은 Superpowers를 사용하는 프로젝트에만 제공합니다.
-
-| 작업 유형 | 파일 |
-|---|---|
-| 기능 추가 / 동작 변경 | [ko/aok/workflows/feature-change.md](ko/aok/workflows/feature-change.md) |
-| 버그 수정 | [ko/aok/workflows/bugfix.md](ko/aok/workflows/bugfix.md) |
-| 리팩터링 | [ko/aok/workflows/refactor.md](ko/aok/workflows/refactor.md) |
-| 문서 / 정책 / ADR 변경 | [ko/aok/workflows/docs-change.md](ko/aok/workflows/docs-change.md) |
-| 설정 / 빌드 / CI / 의존성 / 배포 / DB 변경 | [ko/aok/workflows/risky-change.md](ko/aok/workflows/risky-change.md) |
-| 조사 / 의사결정 / 기술 선택 | [ko/aok/workflows/research-decision.md](ko/aok/workflows/research-decision.md) |
-| 리뷰 피드백 반영 | [ko/aok/workflows/review-feedback.md](ko/aok/workflows/review-feedback.md) |
-| 반복 실패 / 프로젝트 전용 스킬화 | [ko/aok/workflows/repeated-failure.md](ko/aok/workflows/repeated-failure.md) |
 
 ## Superpowers와의 관계
 
@@ -200,32 +181,13 @@ en/
 | [en/aok/file-structure.md](en/aok/file-structure.md) | Recommended AOK file structure |
 | [en/aok/superpowers-install.md](en/aok/superpowers-install.md) | Superpowers installation and workflow preconditions |
 
-## Templates
+## Templates And Workflows
 
-| Purpose | File |
-|---|---|
-| Optional global Codex instructions | [en/aok/templates/global-agents.md](en/aok/templates/global-agents.md) |
-| Repo root `AGENTS.md` | [en/aok/templates/repo-agents.md](en/aok/templates/repo-agents.md) |
-| `.agents/INDEX.md` | [en/aok/templates/agents-index.md](en/aok/templates/agents-index.md) |
-| Agent instruction change proposal | [en/aok/templates/agent-change-proposal.md](en/aok/templates/agent-change-proposal.md) |
-| Nested `AGENTS.md` | [en/aok/templates/subdir-agents.md](en/aok/templates/subdir-agents.md) |
-| ADR | [en/aok/templates/adr.md](en/aok/templates/adr.md) |
-| Current status document | [en/aok/templates/current-status.md](en/aok/templates/current-status.md) |
+The full template and workflow catalog is in [en/agentOperatingKit.md](en/agentOperatingKit.md).
 
-## Workflow Templates
+This README covers only the project overview and quick start. When an agent applies AOK, it should use `en/agentOperatingKit.md` as the source index and read only the selected template or workflow files needed for the chosen scope.
 
 Workflow templates are provided only for projects that use Superpowers.
-
-| Work Type | File |
-|---|---|
-| Feature or behavior change | [en/aok/workflows/feature-change.md](en/aok/workflows/feature-change.md) |
-| Bug fix | [en/aok/workflows/bugfix.md](en/aok/workflows/bugfix.md) |
-| Refactor | [en/aok/workflows/refactor.md](en/aok/workflows/refactor.md) |
-| Documentation, policy, or ADR change | [en/aok/workflows/docs-change.md](en/aok/workflows/docs-change.md) |
-| Config, build, CI, dependency, deployment, or DB change | [en/aok/workflows/risky-change.md](en/aok/workflows/risky-change.md) |
-| Research or technical decision | [en/aok/workflows/research-decision.md](en/aok/workflows/research-decision.md) |
-| Review feedback handling | [en/aok/workflows/review-feedback.md](en/aok/workflows/review-feedback.md) |
-| Repeated failure or project-specific skill extraction | [en/aok/workflows/repeated-failure.md](en/aok/workflows/repeated-failure.md) |
 
 ## Relationship to Superpowers
 

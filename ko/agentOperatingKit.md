@@ -34,10 +34,12 @@ English version: [../en/agentOperatingKit.md](../en/agentOperatingKit.md)
 | 전역 Codex 지침 | [aok/templates/global-agents.md](aok/templates/global-agents.md) |
 | repo 루트 `AGENTS.md` | [aok/templates/repo-agents.md](aok/templates/repo-agents.md) |
 | `.agents/INDEX.md` | [aok/templates/agents-index.md](aok/templates/agents-index.md) |
-| Agent 지침 변경 제안 양식 | [aok/templates/agent-change-proposal.md](aok/templates/agent-change-proposal.md) |
+| Agent 지침 변경 제안 채팅 양식 | [aok/templates/agent-change-proposal.md](aok/templates/agent-change-proposal.md) |
 | 하위 `AGENTS.md` | [aok/templates/subdir-agents.md](aok/templates/subdir-agents.md) |
 | ADR | [aok/templates/adr.md](aok/templates/adr.md) |
 | 현재 상태 문서 | [aok/templates/current-status.md](aok/templates/current-status.md) |
+| 버전 이력 | [aok/templates/version-history.md](aok/templates/version-history.md) |
+| 작업 로그 | [aok/templates/work-log.md](aok/templates/work-log.md) |
 
 ## Workflow 템플릿
 

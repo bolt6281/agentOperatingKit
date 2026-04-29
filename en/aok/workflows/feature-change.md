@@ -20,8 +20,8 @@ When adding a feature or changing behavior, classify task size first and follow 
    - `writing-plans` documentation and `executing-plans` can be skipped.
    - If behavior changes, add the smallest practical test or reproduction check.
    - Before completion, use `verification-before-completion` to confirm actual verification results.
-4. For the standard path, use `brainstorming` to clarify purpose, user, success criteria, scope, and non-scope.
-5. If needed, use `clarify` to narrow ambiguous requirements through concrete choices.
+4. For the standard path, use `brainstorming` to define purpose, user, success criteria, scope, and non-scope.
+5. If requirements are ambiguous, ask only the minimum questions needed to narrow scope and success criteria.
 6. After user approval, use `writing-plans` to write an implementation plan.
 7. When the plan is ready, use `executing-plans` to execute step by step.
 8. For verifiable behavior changes, use `test-driven-development` to create a failing test first.

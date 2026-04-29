@@ -1,6 +1,7 @@
 # Agent 작업 절차 색인
 
 작업이 해당될 때만 필요한 문서를 읽는다. 모든 workflow 문서를 기본으로 읽지 않는다.
+이 문서는 agent 지침 파일, workflow, 프로젝트 전용 skill만 색인한다. 제품, 운영, ADR, 릴리스, 작업 로그 같은 일반 프로젝트 문서는 루트 `AGENTS.md`의 문서 지도에서 관리한다.
 
 ## 공통 라우팅
 
@@ -97,17 +98,18 @@ Superpowers workflow를 적용한 프로젝트에서만 이 표를 사용한다.
 ## 선택 가능한 workflow 후보
 
 아래 항목은 AOK가 제공하는 후보 목록이다. 적용한 항목만 위 `Workflow 문서` 표에 올린다.
+후보 표는 그대로 전부 복사하는 목록이 아니다. 반복 빈도, 실패 비용, Superpowers 사용 여부, 함께 생성해야 할 workflow를 확인한 뒤 실제로 쓸 항목만 선택한다.
 
-| 작업 유형 | 후보 문서 |
-|---|---|
-| 기능 추가 / 동작 변경 | `.agents/workflows/feature-change.md` |
-| 버그 수정 | `.agents/workflows/bugfix.md` |
-| 리팩터링 | `.agents/workflows/refactor.md` |
-| 문서 / 정책 / ADR 변경 | `.agents/workflows/docs-change.md` |
-| 설정 / 빌드 / CI / 의존성 / 배포 / DB 변경 | `.agents/workflows/risky-change.md` |
-| 조사 / 의사결정 / 기술 선택 | `.agents/workflows/research-decision.md` |
-| 리뷰 피드백 반영 | `.agents/workflows/review-feedback.md` |
-| 반복 실패 / 프로젝트 전용 스킬화 | `.agents/workflows/repeated-failure.md` |
+| 작업 유형 | 후보 문서 | 반복 빈도 기준 | 실패 비용 | Superpowers 필요 | 함께 생성 권장 |
+|---|---|---|---|---|---|
+| 기능 추가 / 동작 변경 | `.agents/workflows/feature-change.md` | 기능 또는 동작 변경이 반복되고 요구사항/검증 범위 정리가 필요함 | 중간 | 필수 | 고위험 기능이 자주 있으면 `risky-change.md` |
+| 버그 수정 | `.agents/workflows/bugfix.md` | 재현, 회귀 확인, 원인 분석 절차가 반복됨 | 중간 | 필수 | 장애/운영 회귀가 잦으면 `risky-change.md` |
+| 리팩터링 | `.agents/workflows/refactor.md` | 외부 동작 보존과 구조 개선을 분리하는 일이 반복됨 | 중간 | 필수 | 대규모 공유 경계 변경이면 `review-feedback.md` |
+| 문서 / 정책 / ADR 변경 | `.agents/workflows/docs-change.md` | 문서 의미 변경, source of truth, ADR, agent 지침 변경이 반복됨 | 낮음~중간 | 필수 | 첫 AOK 적용은 `application-guide.md`를 우선하고 이 workflow로 처리하지 않음 |
+| 설정 / 빌드 / CI / 의존성 / 배포 / DB 변경 | `.agents/workflows/risky-change.md` | DB, 배포, CI, secret, 인증/권한, 결제, 보안 변경이 반복되거나 실패 비용이 큼 | 높음 | 필수 | 고위험 기능, 운영 버그, migration 작업과 함께 우선 생성 |
+| 조사 / 의사결정 / 기술 선택 | `.agents/workflows/research-decision.md` | 비교 조사와 의사결정 근거 작성이 반복됨 | 중간~높음 | 필수 | 결정 뒤 구현이 이어지면 `feature-change.md` 또는 `risky-change.md` |
+| 리뷰 피드백 반영 | `.agents/workflows/review-feedback.md` | 리뷰 반영 전 타당성 확인과 범위 조정이 반복됨 | 중간 | 필수 | 기능/리팩터링 workflow와 함께 사용 가능 |
+| 반복 실패 / 프로젝트 전용 스킬화 | `.agents/workflows/repeated-failure.md` | 같은 실패가 반복되고 테스트/린트/CI만으로 막기 어려움 | 중간~높음 | 필수 | 안정된 판단 절차가 생긴 뒤 프로젝트 전용 skill 후보 |
 
 ## 프로젝트 전용 skill
 

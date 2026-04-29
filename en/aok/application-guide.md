@@ -6,6 +6,8 @@ When an agent is asked to apply AOK, it must not create files immediately. It sh
 
 ## Application Order
 
+This document governs first-time AOK adoption and migration of existing projects into AOK structure. After AOK is applied, ordinary documentation, policy, and ADR changes follow `workflows/docs-change.md`.
+
 1. Briefly explain the role of AOK.
 2. For an existing project, inspect the current file structure, existing agent instructions, README, docs, workflows, and test/build commands.
 3. Present the first-stage AOK interview as choices.
@@ -69,14 +71,17 @@ Ask only the questions needed based on the first-stage answers.
 
 ### AOK Core File Scope
 
+Default paths and structures for these items follow [Recommended File Structure](file-structure.md).
+
 - Root `AGENTS.md`: project overview, common commands, verification routing, and document map.
 - Global `~/.codex/AGENTS.md`: only when the user wants AOK-aligned personal global rules.
 - `.agents/INDEX.md`: index for agent workflows and instruction files.
 - `.agents/workflows/*.md`: task-specific procedures only for projects that use Superpowers.
+- `.agents/skills/<skill-name>/SKILL.md`: create only through the `repeated-failure` workflow after repeated failures show that a stable judgment procedure is needed and automation is not enough.
 - `docs/adr.md` or `docs/adr/`: source of truth for product, architecture, UX, data, and operations decisions. When ADR content grows, prefer `docs/adr/<domain>/<decision-topic>.md` over a numbered file list.
 - `docs/current-status.md`: short current operating baseline, verification baseline, deployment/external dependency snapshot, and remaining risks.
 - `docs/VERSION_HISTORY.md`: major changes and decision history by version.
-- `docs/work-log.md`: only for long-running operational notes that cannot be tracked well in issues, PRs, or plans.
+- `docs/work-log.md`: only for long-running operational notes that cannot be tracked well in issues, PRs, or plans. Use it as a history sink during ordinary work, and read it only for rollback, recovery, incident investigation, or regression tracing.
 - Nested `AGENTS.md`: scope-specific instructions for a repeated project area.
 - Not now: apply the minimal structure and promote later if needed.
 
@@ -140,6 +145,7 @@ If placement is ambiguous, keep only a short routing rule in root `AGENTS.md` an
 | Clean up existing project | Read existing documents one by one and record loss risks in the migration trace. |
 | Strengthen collaboration | Review ADR, current status, version history, and nested `AGENTS.md` candidates. If Level 3-like documents already exist, mark them as preserve or cleanup candidates instead of creating new ones. |
 | Control risky work | If Superpowers is used, prioritize risky-change workflow, approval rules, rollback, and verification. |
+| Repeated failure or project-specific judgment | First check whether tests, lint, CI, or scripts can prevent the issue. Propose a project-specific skill only when automation is not enough and the judgment procedure has stabilized. |
 | Preserve originals | Do not delete or move existing documents; connect them by links and summaries. |
 | Archive originals | Propose documents that should move to `docs/archive/`. |
 | Merge first | Merge duplicate content into source-of-truth docs and check for information loss. |

@@ -5,12 +5,12 @@
 
 ## Purpose
 
-Before implementing, clarify the decision purpose and evaluation criteria, compare alternatives and risks, and connect the decision to documentation updates when needed.
+Before implementing, define the decision purpose and evaluation criteria, compare alternatives and risks, and connect the decision to documentation updates when needed.
 
 ## Procedure
 
-1. Do not implement first. Clarify the purpose of the question and the decision criteria.
-2. If needed, use `clarify` to settle options and evaluation criteria.
+1. Do not implement first. Define the purpose of the question and the decision criteria.
+2. If needed, ask only the minimum questions needed to settle options and evaluation criteria.
 3. If the topic is time-sensitive, check official documentation, primary sources, release notes, standards documents, or similarly reliable sources first.
 4. If external sources were used, record the source links and the date they were checked in the decision rationale.
 5. Summarize alternatives, pros and cons, risks, and recommendation.

@@ -42,6 +42,7 @@
 ## 문서 지도
 
 이 표에는 현재 프로젝트에서 실제 기준으로 사용하는 문서만 적는다. 존재하지 않는 문서나 앞으로 만들 수도 있는 후보 문서는 올리지 않는다.
+일반 프로젝트 문서는 이 문서 지도에서 관리하고, agent 지침, workflow, 프로젝트 전용 skill은 `.agents/INDEX.md`에서 관리한다.
 
 | 문서 | 경로 | 상태 | 기준 여부 | 언제 읽는지 | 언제 갱신하는지 |
 |---|---|---|---|---|---|
@@ -51,32 +52,22 @@
 
 ### Level 3 적용 시 추가 후보
 
-아래 항목은 Level 3 문서 거버넌스를 선택한 경우에만 생성하거나 문서 지도에 올린다.
+아래 항목은 Level 3 문서 거버넌스를 선택한 경우에만 검토한다. 기본 경로와 구조는 AOK의 `file-structure.md`를 따른다. 실제로 생성했거나 현재 기준으로 쓰는 문서만 위 문서 지도에 올린다.
 
-| 후보 | 기본 경로 | 역할 |
+| 후보 | 역할 | 문서 지도에 올리는 조건 |
 |---|---|---|
-| ADR | `docs/adr.md` 또는 `docs/adr/INDEX.md` + `docs/adr/<영역>/<결정-주제>.md` | 제품, 아키텍처, UX, 데이터, 운영 기준 |
-| Current status | `docs/current-status.md` | 현재 운영 상태, 검증 기준, 배포/외부 의존성, 남은 위험 |
-| Version history | `docs/VERSION_HISTORY.md` | 주요 변경과 의사결정 이력 |
-| Work log | `docs/work-log.md` | issue, PR, plan으로 추적하기 어려운 장기 운영 메모 |
-| Archive | `docs/archive/` | 폐기, 백업, 원본 참고 자료 |
-| Superpowers outputs | `docs/superpowers/` | spec, plan, review 결과 |
+| ADR | 제품, 아키텍처, UX, 데이터, 운영 기준 | 현재 의사결정의 source of truth일 때 |
+| Current status | 현재 운영 상태, 검증 기준, 배포/외부 의존성, 남은 위험 | 작업 시작 시 확인해야 하는 현재 기준일 때 |
+| Version history | 버전, 릴리스 기준, 배포 산출물 | 버전 또는 릴리스 기준을 다루는 프로젝트일 때 |
+| Work log | 복구, 롤백, 장애 조사, 회귀 추적용 과거 작업 이력 | 평소 읽는 문서가 아니라 특수 상황에서만 참고할 때 |
+| Archive | 폐기, 백업, 원본 참고 자료 | 현재 기준이 아니며 보존 목적일 때 |
+| Superpowers outputs | spec, plan, review 결과 | 공식 기준으로 승격된 산출물일 때만 |
 
-`docs/current-status.md`는 현재 믿어야 하는 운영 기준만 짧게 담는다. 과거 변경 이력은 `docs/VERSION_HISTORY.md`, 장기 메모는 필요한 경우 `docs/work-log.md`, 결정 근거는 ADR에 둔다.
+`docs/current-status.md`는 현재 믿어야 하는 운영 기준만 짧게 담는다. 과거 변경 이력은 `docs/VERSION_HISTORY.md`, 복구/롤백에 필요한 작업 흐름은 필요한 경우 `docs/work-log.md`, 결정 근거는 ADR에 둔다.
 
-`docs/work-log.md`는 기본 생성 대상이 아니다. 장기 운영 메모가 반복되고 기존 issue, PR, plan으로 추적하기 어려울 때만 만든다.
+`docs/work-log.md`는 기본 생성 대상이 아니며, 평소 작업 시작 시 읽지 않는다. 장기 운영 메모가 반복되고 기존 issue, PR, plan으로 추적하기 어려울 때 기록 대상으로 만들고, 롤백, 복구, 장애 조사, 회귀 원인 추적처럼 과거 흐름이 필요한 경우에만 읽는다.
 
-단일 `docs/adr.md`가 커지면 순번식 파일 나열이 아니라 `docs/adr/INDEX.md`와 `docs/adr/<영역>/<결정-주제>.md` 구조로 승격한다.
-
-ADR 영역 예시:
-
-| 영역 | 예시 경로 | 사용 조건 |
-|---|---|---|
-| product | `docs/adr/product/notification-policy.md` | 제품 정책, 기능 범위, 사용자 흐름 결정 |
-| architecture | `docs/adr/architecture/app-web-boundary.md` | 앱/웹/서버/외부 시스템 경계 결정 |
-| data | `docs/adr/data/job-status-model.md` | DB, 스키마, 상태 모델, migration 기준 |
-| operations | `docs/adr/operations/deployment-policy.md` | 배포, 버전, 운영, 롤백 정책 |
-| ux | `docs/adr/ux/worker-flow.md` | UX 원칙, 화면 흐름, 상호작용 기준 |
+ADR이 커졌을 때의 경로와 영역 예시는 AOK의 `file-structure.md`와 `adr.md` 템플릿을 따른다.
 
 ## 문서 지도 유지 규칙
 
