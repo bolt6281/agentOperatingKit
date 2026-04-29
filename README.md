@@ -99,7 +99,7 @@ AOK does not provide converted workflow documents for environments that do not u
 
 ## License
 
-Released under the MIT License. See [LICENSE](LICENSE) for details.
+Released under the MIT No Attribution License (MIT-0). See [LICENSE](LICENSE) for details.
 
 ---
 
@@ -203,4 +203,4 @@ Superpowers를 쓰지 않는 환경에서는 workflow 문서를 변환해 제공
 
 ## 라이선스
 
-MIT License로 배포합니다. 자세한 내용은 [LICENSE](LICENSE)를 확인하세요.
+MIT No Attribution License (MIT-0)로 배포합니다. 자세한 내용은 [LICENSE](LICENSE)를 확인하세요.
