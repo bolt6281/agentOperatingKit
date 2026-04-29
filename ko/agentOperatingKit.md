@@ -11,7 +11,7 @@ English version: [../en/agentOperatingKit.md](../en/agentOperatingKit.md)
 ## 읽는 순서
 
 1. [AOK 적용 가이드라인](aok/application-guide.md)
-2. [채택 레벨](aok/adoption-levels.md)
+2. [구성요소 선택 가이드](aok/component-selection.md)
 3. [권장 파일 구조](aok/file-structure.md)
 4. workflow를 적용할 경우 [Superpowers 설치 및 workflow 적용 전제](aok/superpowers-install.md)
 5. 필요한 템플릿 또는 workflow 파일만 선택해서 읽는다.

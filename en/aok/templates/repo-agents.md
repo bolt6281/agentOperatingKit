@@ -50,9 +50,9 @@ Manage general project documents in this document map. Manage agent instructions
 
 Read only the documents relevant to the task.
 
-### Additional Candidates For Level 3
+### Additional Documentation Governance Candidates
 
-Review these only when Level 3 documentation governance is selected. Default paths and structures follow AOK `file-structure.md`. List a document in the map above only when it exists or is currently used as a reference.
+Review these only when documentation governance is needed. Default paths and structures follow AOK `file-structure.md`. List a document in the map above only when it exists or is currently used as a reference.
 
 | Candidate | Role | Add To Document Map When |
 |---|---|---|
@@ -61,7 +61,7 @@ Review these only when Level 3 documentation governance is selected. Default pat
 | Version history | versions, release baselines, deployment artifacts | the project has version or release baselines to manage |
 | Work log | historical work used for recovery, rollback, incident investigation, or regression tracing | it is a special-case reference, not a default read |
 | Archive | deprecated, backup, and original reference material | it is preserved history, not current source of truth |
-| Superpowers outputs | specs, plans, review results | an output has been promoted to an official reference |
+| Superpowers outputs | specs, plans, review results | an output has been registered as an official reference |
 
 `docs/current-status.md` should contain only the current operating baseline. Put past release changes in `docs/VERSION_HISTORY.md`, recovery or rollback work history in `docs/work-log.md` when needed, and decision rationale in ADRs.
 

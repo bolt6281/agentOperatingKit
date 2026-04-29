@@ -12,7 +12,7 @@ This document governs first-time AOK adoption and migration of existing projects
 2. For an existing project, inspect the current file structure, existing agent instructions, README, docs, workflows, and test/build commands.
 3. Present the first-stage AOK interview as choices.
 4. Ask only the second-stage questions needed for the user's selections.
-5. Produce a recommended adoption level and application proposal.
+5. Produce a recommended scope and component selection proposal.
 6. Propose the files to create, modify, move, archive, or deprecate, along with a document migration trace.
 7. Create files or change the meaning of existing documents only after user approval.
 
@@ -83,7 +83,7 @@ Default paths and structures for these items follow [Recommended File Structure]
 - `docs/VERSION_HISTORY.md`: major changes and decision history by version.
 - `docs/work-log.md`: only for long-running operational notes that cannot be tracked well in issues, PRs, or plans. Use it as a history sink during ordinary work, and read it only for rollback, recovery, incident investigation, or regression tracing.
 - Nested `AGENTS.md`: scope-specific instructions for a repeated project area.
-- Not now: apply the minimal structure and promote later if needed.
+- Not now: exclude this from the current scope and propose it again later if it becomes needed.
 
 ### Existing Document Handling
 
@@ -143,7 +143,7 @@ If placement is ambiguous, keep only a short routing rule in root `AGENTS.md` an
 | Restore document consistency | Prioritize document maps, source-of-truth markers, conflict lists, and archive policy. |
 | Save context | Split large documents and strengthen indexing rules so agents read only relevant files. |
 | Clean up existing project | Read existing documents one by one and record loss risks in the migration trace. |
-| Strengthen collaboration | Review ADR, current status, version history, and nested `AGENTS.md` candidates. If Level 3-like documents already exist, mark them as preserve or cleanup candidates instead of creating new ones. |
+| Strengthen collaboration | Review ADR, current status, version history, and nested `AGENTS.md` candidates. If long-running operations documents already exist, mark them as preserve or cleanup candidates instead of creating new ones. |
 | Control risky work | If Superpowers is used, prioritize risky-change workflow, approval rules, rollback, and verification. |
 | Repeated failure or project-specific judgment | First check whether tests, lint, CI, or scripts can prevent the issue. Propose a project-specific skill only when automation is not enough and the judgment procedure has stabilized. |
 | Preserve originals | Do not delete or move existing documents; connect them by links and summaries. |
@@ -169,8 +169,8 @@ After receiving the user's choices, the agent proposes:
 ## AOK Application Proposal
 
 - Adoption purpose:
-- Recommended adoption level:
-- Mixed adoption:
+- Recommended scope:
+- Selected AOK components:
 - Files to create:
 - Files to modify:
 - Existing files to preserve or move:

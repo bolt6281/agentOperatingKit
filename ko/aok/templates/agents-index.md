@@ -25,7 +25,7 @@ Superpowers workflow를 적용한 프로젝트에서만 이 표를 사용한다.
 | 5 | 외부 동작 보존을 전제로 한 구조 개선 | `.agents/workflows/refactor.md` |
 | 6 | 조사, 비교, 기술 선택, 의사결정 | `.agents/workflows/research-decision.md` |
 | 7 | 기능 추가 또는 일반 동작 변경 | `.agents/workflows/feature-change.md` |
-| 8 | 같은 실패가 반복되어 문서/skill/자동화로 승격할지 판단 | `.agents/workflows/repeated-failure.md` |
+| 8 | 같은 실패가 반복되어 문서, skill, 자동화 중 어떤 방식으로 막을지 판단 | `.agents/workflows/repeated-failure.md` |
 
 ## INDEX 유지 규칙
 

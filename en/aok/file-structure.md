@@ -1,6 +1,6 @@
 # Recommended File Structure
 
-This document is the source catalog for AOK paths and file roles. Adoption levels, application guides, and templates describe when to use files, but if a default path or structure conflicts, prefer this document.
+This document is the source catalog for AOK paths and file roles. Component selection guides, application guides, and templates describe when to use files, but if a default path or structure conflicts, prefer this document.
 
 ```text
 ~/.codex/AGENTS.md (optional)

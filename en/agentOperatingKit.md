@@ -11,7 +11,7 @@ Korean version: [../ko/agentOperatingKit.md](../ko/agentOperatingKit.md)
 ## Reading Order
 
 1. [AOK Application Guide](aok/application-guide.md)
-2. [Adoption Levels](aok/adoption-levels.md)
+2. [Component Selection Guide](aok/component-selection.md)
 3. [Recommended File Structure](aok/file-structure.md)
 4. [Superpowers Installation and Workflow Preconditions](aok/superpowers-install.md), if workflows are selected
 5. Only the selected template or workflow files

@@ -21,7 +21,7 @@ When the same kind of mistake or failure repeats, look for automation before add
 
 1. If tests, lint, or CI can prevent the issue, automate it.
 2. If automation is hard and judgment is needed, document the workflow.
-3. If the pattern is frequent and stable, promote it to a project-specific skill.
+3. If the pattern is frequent and stable, extract it into a project-specific skill.
 
 ## Before Completion
 
