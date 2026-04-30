@@ -21,7 +21,8 @@
 
 ## Design / UX Tone
 
-- ...
+- If root `DESIGN.md` exists, use it for shared colors, typography, spacing, and component tone.
+- Put only area-specific design / UX differences in this section.
 
 ## Verification
 

@@ -21,7 +21,8 @@
 
 ## 디자인 / UX 톤
 
-- ...
+- 루트 `DESIGN.md`가 있으면 공통 색상, typography, spacing, component tone은 그 문서를 기준으로 한다.
+- 이 섹션에는 이 영역에만 다른 디자인 / UX 규칙을 적는다.
 
 ## 검증
 

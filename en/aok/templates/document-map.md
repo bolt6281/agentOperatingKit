@@ -4,6 +4,8 @@ Use this optional section only when the project needs document routing, source-o
 
 Do not list documents that do not exist. Do not list future candidates. Do not read every listed document by default.
 
+In projects that select `DESIGN.md`, list it in the document map only after the file exists. Mark its source status as `source of truth` or `reference` based on the project decision, and limit its read condition to UI, UX, frontend, and component-styling work.
+
 ## Document Map
 
 | Document | Path | Status | Source Status | Read When | Update When |
@@ -39,6 +41,7 @@ Update the document map in the same task when:
 - A document is no longer source of truth.
 - A document is moved into `docs/archive/`.
 - Product policy, API contract, deployment procedure, data structure, or operations rule changes.
+- `DESIGN.md` is the current design baseline and color, typography, spacing, component styling, or responsive behavior changes.
 - Document conflicts are resolved by choosing one document as primary.
 
 `docs/work-log.md` is not read at the start of ordinary work. Use it as a history sink by default, and read it only for rollback, recovery, incident investigation, or regression tracing.

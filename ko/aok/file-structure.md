@@ -11,6 +11,10 @@
   항상 읽는 짧은 프로젝트 지침: 목적, 공통 명령어, 검증 라우팅, 최소 문서 라우팅
   문서 지도와 지침 파일 거버넌스 섹션은 선택한 경우에만 포함한다.
 
+<repo>/DESIGN.md (선택)
+  UI 작업에서만 읽는 프로젝트 시각 기준: 색상, typography, spacing, component styling, responsive behavior
+  사용자에게 보이는 UI가 있거나 디자인 기준 반복 설명을 줄여야 할 때만 생성한다.
+
 <repo>/.agents/INDEX.md
   workflow와 승인된 agent 지침 파일을 찾기 위한 라우팅 색인
 

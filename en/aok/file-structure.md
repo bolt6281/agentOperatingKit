@@ -11,6 +11,10 @@ This document is the source catalog for AOK paths and file roles. Component sele
   Short always-read project instructions: purpose, common commands, verification routing, and minimal document routing.
   Keep optional document maps and instruction governance sections only when selected.
 
+<repo>/DESIGN.md (optional)
+  Project visual baseline read only for UI work: colors, typography, spacing, component styling, and responsive behavior.
+  Create only when the project has user-facing UI or repeated design guidance needs to be consolidated.
+
 <repo>/.agents/INDEX.md
   Routed-read index of workflows and approved agent instruction files.
 

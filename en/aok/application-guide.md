@@ -75,6 +75,7 @@ Ask this only when the user selects more than minimal root `AGENTS.md` or asks f
 - Stabilize work pipelines: feature work, bug fixes, refactors, and documentation changes need repeatable procedures.
 - Restore document consistency: reduce drift between code and docs, and between docs themselves.
 - Save context: split and index large documents so agents read only what is relevant.
+- Establish UI design baseline: add a `DESIGN.md` reference so colors, typography, spacing, and component tone do not have to be repeated.
 - Clean up an existing project: absorb existing README, agent instructions, docs, and planning material into AOK structure.
 - Strengthen collaboration and long-term operation: keep decisions and work history stable across people or agents.
 - Control risky work: manage DB, deployment, CI, dependency, authentication, authorization, and other high-risk changes more strictly.
@@ -84,6 +85,7 @@ Ask this only when the user selects more than minimal root `AGENTS.md` or asks f
 Default paths and structures for these items follow [Recommended File Structure](file-structure.md).
 
 - Root `AGENTS.md`: short always-read project overview, common commands, verification routing, and minimal document routing. Prefer 50-100 lines for small projects.
+- `DESIGN.md`: create `<repo>/DESIGN.md` only when the project has user-facing UI and repeated design guidance should be consolidated. Route it only for UI, UX, frontend, and component-styling work.
 - Document map section: add only when current project documents need source-of-truth status and explicit read conditions.
 - Agent instruction governance section: add only when `AGENTS.md`, nested `AGENTS.md`, or `.agents/**` changes need approval rules.
 - Global `~/.codex/AGENTS.md`: only when the user wants AOK-aligned personal global rules.
@@ -159,6 +161,7 @@ If placement is ambiguous, keep only a short routing rule in root `AGENTS.md` an
 | Do not use Superpowers | Do not create workflow documents; apply only basic root `AGENTS.md` operating guidance and any selected document routing. |
 | Restore document consistency | Prioritize document maps, source-of-truth markers, conflict lists, and archive policy. |
 | Save context | Split large documents and strengthen indexing rules so agents read only relevant files. |
+| Establish UI design baseline | Consider `DESIGN.md`; if applied, keep only short UI-work routing in root `AGENTS.md`. |
 | Clean up existing project | Read existing documents one by one and record loss risks in the migration trace. |
 | Strengthen collaboration | Review ADR, current status, version history, and nested `AGENTS.md` candidates. If long-running operations documents already exist, mark them as preserve or cleanup candidates instead of creating new ones. |
 | Control risky work | If Superpowers is used, prioritize risky-change workflow, approval rules, rollback, and verification. |

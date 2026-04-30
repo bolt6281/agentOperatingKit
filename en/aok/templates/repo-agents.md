@@ -31,6 +31,7 @@ If a command is unknown, do not invent it. Put it in `Items To Confirm`.
 | Change | Read First | Verify With |
 |---|---|---|
 | Code | `[path or "none"]` | `[test/lint/typecheck/build command]` |
+| UI / frontend | `DESIGN.md` or `[path or "none"]` | `[screenshot/E2E/manual check + lint/build command]` |
 | Docs | `[path or "none"]` | `[link check or affected-reference check]` |
 | Risky change | `[path or approval rule]` | `[rollback/CI/deploy verification]` |
 
@@ -43,6 +44,7 @@ List only existing documents that the project actually uses. Keep read condition
 | When | Read |
 |---|---|
 | Feature work | `[path or none]` |
+| UI / design work | `DESIGN.md` or none |
 | Bug fix | `[path or none]` |
 | Architecture or product decision | `[path or none]` |
 | Deployment, CI, auth, DB, or other risky work | `[path or none]` |
@@ -52,6 +54,7 @@ Read only the documents relevant to the task.
 
 ## Optional Extensions
 
+- Apply [design.md](design.md) as `<repo>/DESIGN.md` only when the project has user-facing UI and repeated color, typography, spacing, or component-tone guidance should be consolidated.
 - Add [document-map.md](document-map.md) only when documents need source-of-truth status, explicit read conditions, or review state.
 - Add [agent-instruction-governance.md](agent-instruction-governance.md) only when agent instruction files need approval rules.
 - Add `.agents/INDEX.md` only when workflows, nested `AGENTS.md`, or project-specific skills need routing.

@@ -31,6 +31,7 @@
 | 변경 | 먼저 읽을 문서 | 검증 방법 |
 |---|---|---|
 | 코드 | `[경로 또는 "없음"]` | `[test/lint/typecheck/build 명령]` |
+| UI / frontend | `DESIGN.md` 또는 `[경로 또는 "없음"]` | `[screenshot/E2E/수동 확인 + lint/build 명령]` |
 | 문서 | `[경로 또는 "없음"]` | `[링크 검사 또는 영향받는 참조 확인]` |
 | 위험 변경 | `[경로 또는 승인 규칙]` | `[rollback/CI/deploy 검증]` |
 
@@ -43,6 +44,7 @@
 | 상황 | 읽을 문서 |
 |---|---|
 | 기능 작업 | `[경로 또는 없음]` |
+| UI / 디자인 작업 | `DESIGN.md` 또는 없음 |
 | 버그 수정 | `[경로 또는 없음]` |
 | 아키텍처 또는 제품 결정 | `[경로 또는 없음]` |
 | 배포, CI, 인증, DB 등 위험 작업 | `[경로 또는 없음]` |
@@ -52,6 +54,7 @@
 
 ## 선택 확장
 
+- 사용자에게 보이는 UI가 있고 색상, typography, spacing, component tone을 반복해서 설명해야 할 때만 [design.md](design.md)를 `<repo>/DESIGN.md`로 적용한다.
 - 문서의 source-of-truth 상태, 명시적 읽기 조건, 검토 상태가 필요할 때만 [document-map.md](document-map.md)를 추가한다.
 - agent 지침 파일에 승인 규칙이 필요할 때만 [agent-instruction-governance.md](agent-instruction-governance.md)를 추가한다.
 - workflow, 하위 `AGENTS.md`, 프로젝트 전용 skill 라우팅이 필요할 때만 `.agents/INDEX.md`를 추가한다.

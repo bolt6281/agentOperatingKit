@@ -48,6 +48,7 @@ AOK 적용의 성공 기준은 일반 작업에서 agent가 읽어야 하는 기
 |---|---|
 | 전역 Codex 지침 | [aok/templates/global-agents.md](aok/templates/global-agents.md) |
 | repo 루트 `AGENTS.md` | [aok/templates/repo-agents.md](aok/templates/repo-agents.md) |
+| UI 디자인 기준 `DESIGN.md` | [aok/templates/design.md](aok/templates/design.md) |
 | 문서 지도 섹션 | [aok/templates/document-map.md](aok/templates/document-map.md) |
 | agent 지침 거버넌스 섹션 | [aok/templates/agent-instruction-governance.md](aok/templates/agent-instruction-governance.md) |
 | `.agents/INDEX.md` | [aok/templates/agents-index.md](aok/templates/agents-index.md) |

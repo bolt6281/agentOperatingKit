@@ -48,6 +48,7 @@ Use read frequency instead of adoption levels.
 |---|---|
 | Global Codex instructions | [aok/templates/global-agents.md](aok/templates/global-agents.md) |
 | Repo root `AGENTS.md` | [aok/templates/repo-agents.md](aok/templates/repo-agents.md) |
+| UI design reference `DESIGN.md` | [aok/templates/design.md](aok/templates/design.md) |
 | Document map section | [aok/templates/document-map.md](aok/templates/document-map.md) |
 | Agent instruction governance section | [aok/templates/agent-instruction-governance.md](aok/templates/agent-instruction-governance.md) |
 | `.agents/INDEX.md` | [aok/templates/agents-index.md](aok/templates/agents-index.md) |

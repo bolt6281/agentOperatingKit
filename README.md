@@ -57,6 +57,7 @@ AOK is not installed through a fixed sequence. It is a template pack where each 
 | Component | Use When |
 |---|---|
 | Root `AGENTS.md` | The agent needs always-read project overview, commands, and verification routing |
+| `DESIGN.md` | UI/frontend work needs a routed visual baseline for colors, typography, spacing, and components |
 | Document map / instruction governance sections | Document source-of-truth status or agent instruction change approval rules are needed |
 | `.agents/INDEX.md` | Workflows, nested agent instructions, or project-specific skills need an index |
 | `.agents/workflows/*.md` | The project uses Superpowers and the same work procedure repeats |
@@ -94,6 +95,12 @@ The full template and workflow catalog is in [en/agentOperatingKit.md](en/agentO
 This README covers only the project overview and quick start. When an agent applies AOK, it should use `en/agentOperatingKit.md` as the source index and read only the selected template or workflow files needed for the chosen scope.
 
 Workflow templates are provided only for projects that use Superpowers.
+
+## Relationship to DESIGN.md
+
+AOK's optional `DESIGN.md` template follows the DESIGN.md format introduced by [Google Stitch](https://stitch.withgoogle.com/docs/design-md/specification) and specified in [google-labs-code/design.md](https://github.com/google-labs-code/design.md).
+
+AOK's template is an adaptation for AOK's routed-read model. It is not an official Google template, and third-party `DESIGN.md` examples should be treated as references unless the project owner confirms they are official design systems.
 
 ## Relationship to Superpowers
 
@@ -165,6 +172,7 @@ AOK는 정해진 단계를 따라 설치하는 도구가 아니라, 프로젝트
 | 구성요소 | 쓸 때 |
 |---|---|
 | 루트 `AGENTS.md` | agent가 항상 알아야 하는 프로젝트 개요, 명령어, 검증 라우팅이 필요할 때 |
+| `DESIGN.md` | UI/frontend 작업에서 색상, typography, spacing, component 기준을 반복 설명하지 않게 해야 할 때 |
 | 문서 지도 / 지침 거버넌스 섹션 | 문서 source-of-truth 상태나 agent 지침 변경 승인 규칙이 필요할 때 |
 | `.agents/INDEX.md` | workflow, 하위 agent 지침, 프로젝트 전용 skill을 색인해야 할 때 |
 | `.agents/workflows/*.md` | Superpowers를 사용하고 같은 작업 절차가 반복될 때 |
@@ -202,6 +210,12 @@ en/
 README는 프로젝트 소개와 빠른 시작만 다룹니다. agent가 실제로 AOK를 적용할 때는 `ko/agentOperatingKit.md`를 원본 인덱스로 읽고, 선택한 범위에 필요한 템플릿이나 workflow 파일만 추가로 확인합니다.
 
 Workflow 템플릿은 Superpowers를 사용하는 프로젝트에만 제공합니다.
+
+## DESIGN.md와의 관계
+
+AOK의 선택 `DESIGN.md` 템플릿은 [Google Stitch](https://stitch.withgoogle.com/docs/design-md/specification)가 도입하고 [google-labs-code/design.md](https://github.com/google-labs-code/design.md)에서 명세한 DESIGN.md 형식을 따른다.
+
+AOK의 템플릿은 AOK의 필요한 문서만 읽는 모델에 맞춘 적용 템플릿이다. 공식 Google 템플릿은 아니며, 제3자 `DESIGN.md` 예시는 프로젝트 소유자가 공식 디자인 시스템이라고 확인한 경우가 아니라면 참고 자료로 취급한다.
 
 ## Superpowers와의 관계
 

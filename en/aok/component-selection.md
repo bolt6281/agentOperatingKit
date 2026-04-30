@@ -24,7 +24,7 @@ AOK succeeds when it reduces the amount of context an agent must read for ordina
 | Always-read | Root `AGENTS.md` | Read every session; keep short |
 | Routed-read | `.agents/INDEX.md`, nested `AGENTS.md` | Read only when routing or area-specific rules are needed |
 | Task-read | Selected workflow files | Read only for the matching repeated task |
-| Reference-read | ADR, current status, version history | Read only when the task depends on that source of truth |
+| Reference-read | `DESIGN.md`, ADR, current status, version history | Read only when the task depends on that source of truth |
 | Exception-read | Work log, archive | Read only for rollback, recovery, incident investigation, regression tracing, or historical preservation |
 
 ## Component Selection Criteria
@@ -32,6 +32,7 @@ AOK succeeds when it reduces the amount of context an agent must read for ordina
 | Component | Create Or Update When | Do Not Create When |
 |---|---|---|
 | Root `AGENTS.md` | The agent needs always-read project overview, common commands, verification routing, or short document routing | README is enough and the project does not need agent operating rules |
+| `DESIGN.md` | UI, UX, frontend, component, or style-system work repeatedly needs visual rules for colors, typography, spacing, radius, elevation, or responsive behavior | The project has no user-facing UI, or existing design-system and component-library docs are already sufficient |
 | Document map section | Current project documents need read conditions and source-of-truth status | There are only one or two obvious documents and README routing is enough |
 | Agent instruction governance section | Agent instruction files are managed policy files and changes need approval rules | The project has only a small root `AGENTS.md` and no repeated instruction changes |
 | `.agents/INDEX.md` | Workflows, nested agent instructions, or project-specific skills need an index | Root `AGENTS.md` is enough or the project does not use Superpowers workflows |
@@ -77,5 +78,6 @@ Review whether a related component is needed when these patterns repeat:
 - The agent repeats the same kind of mistake.
 - Finding document locations takes time.
 - Verification commands or work boundaries are often confused.
+- UI work repeatedly needs the same color, typography, spacing, or component tone explained again.
 - Decision history begins to drift away from the code.
 - Rollback, recovery, incident investigation, or regression tracing requires past context that is hard to find.
