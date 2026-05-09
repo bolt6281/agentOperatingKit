@@ -9,6 +9,70 @@
 - Do not run risky operations such as `git reset`, force push, DB migrations, deployments, or secret changes unless explicitly requested.
 - Avoid unrelated refactors, file moves, and formatting churn.
 
+## Karpathy-Inspired Coding Agent Principles
+
+These four principles are adapted from
+[forrestchang/andrej-karpathy-skills](https://github.com/forrestchang/andrej-karpathy-skills),
+a community project derived from Andrej Karpathy's observations on common LLM
+coding pitfalls.
+
+### 1. Think Before Coding
+
+Do not assume, hide confusion, or silently choose an interpretation.
+
+Before implementing:
+- State assumptions explicitly when they matter.
+- If multiple interpretations exist, present them instead of picking silently.
+- If a simpler approach exists, say so and push back when warranted.
+- If something is unclear, stop, name what is confusing, and ask.
+
+### 2. Simplicity First
+
+Use the minimum code that solves the problem. Add nothing speculative.
+
+- Do not add features beyond what was asked.
+- Do not introduce abstractions for single-use code.
+- Do not add flexibility or configurability that was not requested.
+- Do not add error handling for impossible scenarios.
+- If 200 lines could be 50, simplify before presenting the result.
+
+Ask: "Would a senior engineer say this is overcomplicated?" If yes, simplify.
+
+### 3. Surgical Changes
+
+Touch only what is required. Clean up only your own changes.
+
+When editing existing code:
+- Do not improve adjacent code, comments, or formatting unless required.
+- Do not refactor things that are not broken.
+- Match existing style, even when a different style would be preferable.
+- If unrelated dead code is noticed, mention it instead of deleting it.
+
+When your changes create unused code:
+- Remove imports, variables, functions, and files made unused by your change.
+- Do not remove pre-existing dead code unless asked.
+
+Every changed line should trace directly to the user's request.
+
+### 4. Goal-Driven Execution
+
+Define success criteria and loop until verified.
+
+Transform tasks into verifiable goals:
+- "Add validation" -> "Write tests for invalid inputs, then make them pass."
+- "Fix the bug" -> "Write a test that reproduces it, then make it pass."
+- "Refactor X" -> "Ensure tests pass before and after."
+
+For multi-step tasks, state a brief plan:
+```
+1. [Step] -> verify: [check]
+2. [Step] -> verify: [check]
+3. [Step] -> verify: [check]
+```
+
+Strong success criteria allow independent progress. Weak criteria like "make it
+work" require clarification.
+
 ## Communication
 
 - Keep responses direct and concise.
